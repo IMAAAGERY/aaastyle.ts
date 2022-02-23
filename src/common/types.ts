@@ -1,8 +1,8 @@
-export type ButtonVariant = 'text' | 'outlined' | 'contained';
+export interface BaseComponentProps {
+	theme?: Theme;
+}
 
-export type ButtonShape = 'rounded' | 'sharp' | 'pill';
-
-export type ButtonColor = 'primary' | 'secondary' | 'info' | 'warning' | 'danger' | 'success';
+export type Orientation = 'horizontal' | 'vertical';
 
 export type Theme = {
 	button: {
@@ -37,4 +37,42 @@ export type Theme = {
 			light: string;
 		};
 	};
+	sidebar: {
+		backgroundColor: string;
+		color: string;
+	};
+	sidebarItem: {
+		backgroundColor: string;
+		color: string;
+	};
+	container: {
+		backgroundColor: string;
+	};
+	view: {
+		backgroundColor: string;
+	};
+	list: {
+		backgroundColor: string;
+		borderColor: string;
+		color: string;
+	};
+	listItem: {
+		backgroundColor: string;	
+		color: string;
+	};
+	dialog: {
+		backgroundColor: string;
+	};
+	dialogBackground: {
+		backgroundColor: string;
+	};
+	card: {
+		backgroundColor: string;
+	};
+	toast: {
+		backgroundColor: string;
+	};
+	box :{
+		backgroundColor: string;
+	}
 };

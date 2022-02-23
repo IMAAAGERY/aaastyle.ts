@@ -23,14 +23,52 @@ export const DEFAULT_THEME: Theme = {
 			light: '#f8f9fa',
 		},
 		color: {
-			primary: '#fff',
-            secondary: '#fff',
-            warning: '#fff',
-            danger: '#fff',
-            info: '#fff',
-            success: '#fff',
-            dark: '#fff',
-            light: '#fff',
+			primary: '#ffffff',
+			secondary: '#ffffff',
+			warning: '#000000',
+			danger: '#000000',
+			info: '#000000',
+			success: '#000000',
+			dark: '#ffffff',
+			light: '#000000',
 		},
 	},
+	sidebar: {
+		backgroundColor: '#f2f2f7',
+		color: '#000000',
+	},
+	sidebarItem: {
+		backgroundColor: '#f2f2f7',
+		color: '#000000',
+	},
+	container: {
+		backgroundColor: 'transparent',
+	},
+	view: {
+		backgroundColor: 'transparent',
+	},
+	list: {
+		backgroundColor: '#ffffff',
+		borderColor: 'transparent',
+		color: '#000000',
+	},
+	listItem: {
+		backgroundColor: 'transparent',
+		color: '#000000',
+	},
+	dialog: {
+		backgroundColor: '#ffffff',
+	},
+	dialogBackground: {
+		backgroundColor: '#909090',
+	},
+	card: {
+		backgroundColor: '#ffffff',
+	},
+	toast: {
+		backgroundColor: '#ffffff',
+	},
+	box: {
+		backgroundColor: '#ffffff',
+	}
 };
