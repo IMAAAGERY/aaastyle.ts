@@ -31,7 +31,7 @@ const ToggleButtonGroup = forwardRef<HTMLDivElement, ToggleButtonGroupProps>((pr
 	return (
 		<ToggleButtonGroupStyle orientation={orientation || 'horizontal'} ref={ref} style={style} className={className}>
 			{children.map((child: ReactNode, index: number) => (
-				<ToggleButton selected={selectedButtons[index]} onClick={() => handleToggleButtonClick(index)} key={index}>
+				<ToggleButton positionInGroup={index===0 ? 'first' : index === (children.length-1) ? 'last' : undefined} selected={selectedButtons[index]} onClick={() => handleToggleButtonClick(index)} key={index}>
 					{child}
 				</ToggleButton>
 			))}

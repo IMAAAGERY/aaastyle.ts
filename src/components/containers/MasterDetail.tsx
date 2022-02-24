@@ -11,12 +11,14 @@ import { MasterDetailGroupTitleStyle, MasterDetailStyle } from './style';
 
 export type MasterDetailGroup = {
 	title: JSX.Element | string;
+	collapsedTitle?: JSX.Element | string;
 	items?: MasterDetailItem[];
 	foldable?: boolean;
 };
 export type MasterDetailItem = {
 	title: JSX.Element | string;
-	content: ReactNode;
+	collapsedTitle?: JSX.Element | string;
+	content?: ReactNode;
 };
 
 interface MasterDetailProps extends ComponentPropsWithRef<'div'> {
@@ -38,11 +40,11 @@ const MasterDetail = forwardRef<HTMLDivElement, MasterDetailProps>((props, ref) 
 					{header && <SidebarItem>{header}</SidebarItem>}
 					{children?.map((group, index) => (
 						<SidebarItem key={index}>
-							<MasterDetailGroupTitleStyle>{group.title}</MasterDetailGroupTitleStyle>
+							<MasterDetailGroupTitleStyle>{collapsed? group.collapsedTitle : group.title}</MasterDetailGroupTitleStyle>
 							<List>
 								{group.items?.map((item, index) => (
 									<ListItem onClick={() => setCurrentContent(item.content)} key={index}>
-										{item.title}
+										{collapsed? item.collapsedTitle : item.title}
 									</ListItem>
 								))}
 							</List>

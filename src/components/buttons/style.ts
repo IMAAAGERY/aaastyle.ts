@@ -9,11 +9,13 @@ export const ButtonStyle = styled.button<{ color: ButtonColor; variant: ButtonVa
 	align-items: center;
 	height: 40px;
 	width: 120px;
-	margin: 4px;
-	border-radius: 6px;
+	margin: 8px;
+	border-radius: 4px;
 	color: ${(props) => `${props.theme.button.color[props.color]}`};
 	cursor: pointer;
 	overflow: hidden;
+	font-weight: bold;
+	padding: 12px 24px;
 
 	&:hover {
 		opacity: 0.8;
@@ -126,7 +128,7 @@ export const ToggleSwitchStyle = styled.input`
 	}
 `;
 
-export const ToggleButtonStyle = styled.button<{ selected: boolean }>`
+export const ToggleButtonStyle = styled.button<{ selected: boolean; positionInGroup?: 'first' | 'last' }>`
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -134,15 +136,28 @@ export const ToggleButtonStyle = styled.button<{ selected: boolean }>`
 	height: 40px;
 	width: 40px;
 	margin: 4px;
-	border-radius: 6px;
+	border-radius: 4px;
 	overflow: hidden;
 	border: none;
 	background-color: ${(props) => (props.selected ? '#cccccc' : '#ffffff')};
+	box-sizing: border-box;
 	cursor: pointer;
 
 	&:hover {
 		background-color: ${(props) => (props.selected ? '#cccccc' : '#f2f2f7')};
 	}
+
+	${(props) =>
+		(props.positionInGroup === 'first' &&
+			css`
+				border-top-left-radius: 4px !important;
+				border-bottom-left-radius: 4px !important;
+			`) ||
+		(props.positionInGroup === 'last' &&
+			css`
+				border-top-right-radius: 4px !important;
+				border-bottom-right-radiusë: 4px !important;
+			`)}
 `;
 
 export const ToggleButtonGroupStyle = styled.div<{ orientation: Orientation }>`
@@ -152,12 +167,35 @@ export const ToggleButtonGroupStyle = styled.div<{ orientation: Orientation }>`
 	justify-content: center;
 	align-items: center;
 	border: 1px solid #909090;
-	border-radius: 6px;
+	border-radius: 4px;
 	box-sizing: border-box;
 	width: fit-content;
 	padding: 0;
 
-	& > ${ToggleButtonStyle} {
+	& * {
 		margin: 0;
+		border-radius: 0;
+	}
+`;
+
+
+export const FABStyle = styled.button<{extended: boolean}>`
+	cursor: pointer;
+	width: fit-content;
+	height: fit-content;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	border-radius: ${(props) => props.extended ? '200px' : '100%'};
+	font-weight: bold;
+	border: 1px solid;
+	background-color: ${(props) => props.theme.fab.backgroundColor};
+	border-color: ${(props) => props.theme.fab.borderColor};
+	min-width: ${(props) => props.extended ? '200px' : 'unset'};
+	padding: 12px;
+	& * {
+		padding: 0;
 	}
 `;

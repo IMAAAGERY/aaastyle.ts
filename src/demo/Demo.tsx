@@ -6,6 +6,8 @@ import ButtonDemo from './ButtonDemo';
 import GlobalStyle from './globalStyle';
 import ListDemo from './ListDemo';
 import OthersDemo from './OthersDemo';
+import InputsDemo from './InputsDemo';
+
 const Demo = () => {
 	const [collapseMaster, setCollapseMaster] = useState(false);
 
@@ -24,7 +26,7 @@ const Demo = () => {
 				<MasterDetail
 					collapsed={collapseMaster}
 					header={<h2>AAAStyle</h2>}
-					footer={<Button onClick={() => setCollapseMaster(collapseMaster)} variant='text'>{'Reduce'}</Button>}
+					footer={<Button onClick={() => setCollapseMaster(!collapseMaster)} variant='text'>{'Reduce'}</Button>}
 					children={[
 						{
 							title: <h3>Presentation</h3>,
@@ -33,11 +35,10 @@ const Demo = () => {
 						{
 							title: <h3>Components</h3>,
 							items: [
-								// { title: 'Containers', content: ContainersDemo },
 								{ title: 'List', content: ListDemo },
 								{ title: 'Buttons', content: ButtonDemo },
 								{ title: 'Others', content: OthersDemo },
-								{ title: 'Inputs', content: '' },
+								{ title: 'Inputs', content: InputsDemo },
 							],
 						},
 						{
@@ -49,20 +50,6 @@ const Demo = () => {
 						},
 					]}
 				/>
-				{/* <List>
-				<ListItem>Coucou</ListItem>
-				<ListItem>Ceci est un bonjour</ListItem>
-				<ListItem>Voila aurevoir</ListItem>
-			</List> */}
-				{/* <Sidebar collapsed={!showSidebar}>
-				<SidebarItem>Ceci est unb test</SidebarItem>
-				<SidebarItem>Ceci est unb test</SidebarItem>
-				<SidebarItem>Ceci est unb test</SidebarItem>
-			</Sidebar>
-			<Button variant='text' color='primary' shape='pill' onClick={() => setShowSidebar(!showSidebar)}>
-				Show sidebar
-			</Button>
-			{showDialog && <Dialog>Coucou</Dialog>}*/}
 			</View>
 		</>
 	);

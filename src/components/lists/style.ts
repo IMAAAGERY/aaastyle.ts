@@ -8,15 +8,12 @@ export const ListStyle = styled.ul`
 	justify-content: center;
 	align-items: flex-start;
 	list-style: none;
-	/* background-color: ${(props) => props.theme.list.backgroundColor}; */
 	color: ${(props) => props.theme.list.color};
-	/* border-color: ${(props) => props.theme.list.borderColor}; */
 	border-radius: 12px;
 	padding: 0;
 	margin: 12px;
 	width: 100%;
 	box-sizing: border-box;
-	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
 	transition: 0.3s;
 `;
 
@@ -34,3 +31,10 @@ export const ListItemStyle = styled.li`
 		opacity: 0.8;
 	}
 `;
+
+
+export const DropdownStyle = styled.div`
+
+`;
+
+export const DropdownItem = styled.div``;

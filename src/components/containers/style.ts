@@ -105,7 +105,7 @@ export const SidebarStyle = styled.aside<{ collapsed?: boolean }>`
 	left: 0;
 	top: 0;
 	height: 100vh;
-	width: ${(props) => (props.collapsed ? '0' : '250px')};
+	width: ${(props) => (props.collapsed ? '70px' : '250px')};
 	overflow-x: hidden;
 	transition: 0.5s;
 	white-space: nowrap;

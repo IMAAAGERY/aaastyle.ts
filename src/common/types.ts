@@ -74,5 +74,22 @@ export type Theme = {
 	};
 	box :{
 		backgroundColor: string;
+	};
+	input:{
+		backgroundColor: string;
+		color: string;
+	};
+	icon:{
+		backgroundColor: string;
+		color: string;
+	},
+	label: {
+		backgroundColor: string;
+		color: string;
+	},
+	fab:{
+		backgroundColor: string;
+		borderColor: string;
+		color: string;
 	}
 };

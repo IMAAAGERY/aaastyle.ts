@@ -70,5 +70,22 @@ export const DEFAULT_THEME: Theme = {
 	},
 	box: {
 		backgroundColor: '#ffffff',
+	},
+	input:{
+		backgroundColor: '#ffffff',
+		color: '#000000',
+	},
+	icon:{
+		backgroundColor: 'transparent',
+		color: '#000000',
+	},
+	label: {
+		backgroundColor: 'transparent',
+		color: 'transparent'
+	},
+	fab:{
+		backgroundColor: 'transparent',
+		borderColor: 'transparent',
+		color: 'transparent'
 	}
 };

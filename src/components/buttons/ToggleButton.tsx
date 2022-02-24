@@ -6,10 +6,11 @@ import { ButtonContentStyle, ButtonRippleStyle, ToggleButtonStyle } from './styl
 interface ToggleButtonProps extends ComponentPropsWithRef<'button'> {
 	theme?: Theme;
 	selected?: boolean;
+	positionInGroup?: 'first' | 'last';
 }
 
 const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>((props, ref) => {
-	const { theme, children, style, className, onClick, selected } = props;
+	const { theme, children, style, className, onClick, selected, positionInGroup } = props;
 
 	const [clicked, setClicked] = useState<boolean>(selected || false);
 	const [coords, setCoords] = useState({ x: -1, y: -1 });
@@ -41,7 +42,14 @@ const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>((props, re
 	};
 
 	return (
-		<ToggleButtonStyle selected={clicked} theme={theme || DEFAULT_THEME} ref={ref} onClick={(e) => handleClick(e)} style={style} className={className}>
+		<ToggleButtonStyle
+			positionInGroup={positionInGroup}
+			selected={clicked}
+			theme={theme || DEFAULT_THEME}
+			ref={ref}
+			onClick={(e) => handleClick(e)}
+			style={style}
+			className={className}>
 			<ButtonContentStyle>{children}</ButtonContentStyle>
 			{isRippling && <ButtonRippleStyle left={coords.x} top={coords.y} />}
 		</ToggleButtonStyle>

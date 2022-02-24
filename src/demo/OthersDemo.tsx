@@ -4,6 +4,9 @@ import { useRef, useState } from 'react';
 import Toast from '../components/others/Toast';
 import Box from '../components/containers/Box';
 import Dialog from '../components/containers/Dialog';
+import Icon from '../components/others/Icon';
+import Label from '../components/others/Label';
+import { ReactComponent as StarIcon } from './icons/star.svg';
 
 const OthersDemoView = () => {
 	const toastRefTopCenter = useRef<any>(null);
@@ -40,6 +43,24 @@ const OthersDemoView = () => {
 			</Box>
 			<Box>
 				<Button onClick={() => setShowDialog(true)}>Show dialog</Button>
+			</Box>
+
+			<Box>
+				<Icon size='small'>
+					<StarIcon/>
+				</Icon>
+				<Icon>
+					<StarIcon/>
+				</Icon>
+				<Icon size='large'>
+					<StarIcon/>
+				</Icon>
+			</Box>
+			<Box>
+				<Label>
+					{<Icon size='small'><StarIcon /></Icon>}
+					{'coucou'}
+				</Label>
 			</Box>
 		</Container>
 	);
