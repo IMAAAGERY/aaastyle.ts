@@ -37,4 +37,4 @@ export const DropdownStyle = styled.div`
 
 `;
 
-export const DropdownItem = styled.div``;
+export const DropdownItemStyle = styled.div``;

@@ -71,21 +71,33 @@ export const DEFAULT_THEME: Theme = {
 	box: {
 		backgroundColor: '#ffffff',
 	},
-	input:{
+	input: {
 		backgroundColor: '#ffffff',
 		color: '#000000',
 	},
-	icon:{
+	icon: {
 		backgroundColor: 'transparent',
 		color: '#000000',
 	},
 	label: {
 		backgroundColor: 'transparent',
-		color: 'transparent'
+		color: 'transparent',
 	},
-	fab:{
+	fab: {
 		backgroundColor: 'transparent',
 		borderColor: 'transparent',
-		color: 'transparent'
-	}
+		color: 'transparent',
+	},
+	select: {
+		backgroundColor: '#ffffff',
+		color: '#ffffff',
+	},
+	option: {
+		backgroundColor: '#ffffff',
+		selectedBackgroundColor: '#ffffff',
+		hoverBackgroundColor: '#ffffff',
+		color: '#ffffff',
+		selectedColor: '#ffffff',
+		hoverColor: '#ffffff',
+	},
 };

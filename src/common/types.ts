@@ -57,7 +57,7 @@ export type Theme = {
 		color: string;
 	};
 	listItem: {
-		backgroundColor: string;	
+		backgroundColor: string;
 		color: string;
 	};
 	dialog: {
@@ -72,24 +72,36 @@ export type Theme = {
 	toast: {
 		backgroundColor: string;
 	};
-	box :{
+	box: {
 		backgroundColor: string;
 	};
-	input:{
+	input: {
 		backgroundColor: string;
 		color: string;
 	};
-	icon:{
+	icon: {
 		backgroundColor: string;
 		color: string;
-	},
+	};
 	label: {
 		backgroundColor: string;
 		color: string;
-	},
-	fab:{
+	};
+	fab: {
 		backgroundColor: string;
 		borderColor: string;
 		color: string;
-	}
+	};
+	select: {
+		backgroundColor: string;
+		color: string;
+	};
+	option: {
+		backgroundColor: string;
+		selectedBackgroundColor: string;
+		hoverBackgroundColor: string;
+		color: string;
+		selectedColor: string;
+		hoverColor: string;
+	};
 };
