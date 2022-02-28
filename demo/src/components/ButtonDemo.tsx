@@ -1,20 +1,11 @@
-import Button from '../components/buttons/Button';
-import ToggleButton from '../components/buttons/ToggleButton';
-import ToggleButtonGroup from '../components/buttons/ToggleButtonGroup';
-import ToggleSwitch from '../components/buttons/ToggleSwitch';
-import Box from '../components/containers/Box';
-import Container from '../components/containers/Container';
-import FAB from '../components/buttons/FAB';
-import { ReactComponent as AlignCenterIcon } from './icons/align-center.svg';
-import { ReactComponent as AlignLeftIcon } from './icons/align-left.svg';
-import { ReactComponent as AlignRightIcon } from './icons/align-right.svg';
-import { ReactComponent as BoldIcon } from './icons/bold.svg';
-import { ReactComponent as ItalicIcon } from './icons/italic.svg';
-import { ReactComponent as UnderlinedIcon } from './icons/underlined.svg';
-import { ReactComponent as StarIcon } from './icons/star.svg';
-
-import Label from '../components/others/Label';
-import Icon from '../components/others/Icon';
+import { ReactComponent as AlignCenterIcon } from '../assets/icons/align-center.svg';
+import { ReactComponent as AlignLeftIcon } from '../assets/icons/align-left.svg';
+import { ReactComponent as AlignRightIcon } from '../assets/icons/align-right.svg';
+import { ReactComponent as BoldIcon } from '../assets/icons/bold.svg';
+import { ReactComponent as ItalicIcon } from '../assets/icons/italic.svg';
+import { ReactComponent as UnderlinedIcon } from '../assets/icons/underlined.svg';
+import { ReactComponent as StarIcon } from '../assets/icons/star.svg';
+import { Button, ToggleButton, ToggleButtonGroup, ToggleSwitch, Box, Container, FAB, Label, Icon} from 'aaastyle';
 
 const ButtonDemo = () => {
 	return (

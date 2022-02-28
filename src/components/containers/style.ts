@@ -133,17 +133,3 @@ export const SidebarItemStyle = styled.div`
 	padding: 8px;
 	box-sizing: border-box;
 `;
-
-export const CardStyle = styled.div`
-	position: fixed;
-	display: flex;
-	flex-direction: column;
-	width: 'inherit';
-	padding: 8px;
-	margin: 8px;
-	background-color: ${(props) => props.theme.card.backgroundColor};
-	border-radius: 12px;
-	min-height: 60px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	transition: 0.3s;
-`;

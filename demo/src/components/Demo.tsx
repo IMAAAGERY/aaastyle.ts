@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import Button from '../components/buttons/Button';
-import MasterDetail from '../components/containers/MasterDetail';
-import View from '../components/containers/View';
 import ButtonDemo from './ButtonDemo';
-import GlobalStyle from './globalStyle';
 import ListDemo from './ListDemo';
 import OthersDemo from './OthersDemo';
 import InputsDemo from './InputsDemo';
+import { MasterDetail, Button, View } from 'aaastyle';
 
 const Demo = () => {
 	const [collapseMaster, setCollapseMaster] = useState(false);
@@ -21,7 +18,6 @@ const Demo = () => {
 
 	return (
 		<>
-			<GlobalStyle />
 			<View>
 				<MasterDetail
 					collapsed={collapseMaster}

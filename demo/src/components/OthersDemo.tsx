@@ -1,12 +1,6 @@
-import Container from '../components/containers/Container';
-import Button from '../components/buttons/Button';
 import { useRef, useState } from 'react';
-import Toast from '../components/others/Toast';
-import Box from '../components/containers/Box';
-import Dialog from '../components/containers/Dialog';
-import Icon from '../components/others/Icon';
-import Label from '../components/others/Label';
-import { ReactComponent as StarIcon } from './icons/star.svg';
+import { Container, Button, Toast, Box, Dialog, Icon, Label } from 'aaastyle';
+import { ReactComponent as StarIcon } from '../assets/icons/star.svg';
 
 const OthersDemoView = () => {
 	const toastRefTopCenter = useRef<any>(null);
@@ -16,7 +10,7 @@ const OthersDemoView = () => {
 	const toastRefBotCenter = useRef<any>(null);
 	const toastRefBotRight = useRef<any>(null);
 
-    const [showDialog, setShowDialog] = useState(false);
+	const [showDialog, setShowDialog] = useState(false);
 
 	const showToast = (ref: any) => {
 		if (ref.current) {
@@ -47,18 +41,22 @@ const OthersDemoView = () => {
 
 			<Box>
 				<Icon size='small'>
-					<StarIcon/>
+					<StarIcon />
 				</Icon>
 				<Icon>
-					<StarIcon/>
+					<StarIcon />
 				</Icon>
 				<Icon size='large'>
-					<StarIcon/>
+					<StarIcon />
 				</Icon>
 			</Box>
 			<Box>
 				<Label>
-					{<Icon size='small'><StarIcon /></Icon>}
+					{
+						<Icon size='small'>
+							<StarIcon />
+						</Icon>
+					}
 					{'coucou'}
 				</Label>
 			</Box>

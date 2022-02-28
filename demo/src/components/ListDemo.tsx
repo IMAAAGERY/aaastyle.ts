@@ -1,7 +1,4 @@
-import Box from '../components/containers/Box';
-import Container from '../components/containers/Container';
-import List from '../components/lists/List';
-import ListItem from '../components/lists/ListItem';
+import { Box, Container, List, ListItem } from 'aaastyle';
 
 const ListDemo = () => {
 	return (

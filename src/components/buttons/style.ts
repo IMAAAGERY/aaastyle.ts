@@ -1,6 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Orientation } from '../../common/types';
 import { ButtonColor, ButtonShape, ButtonVariant } from './Button';
+
 
 export const ButtonStyle = styled.button<{ color: ButtonColor; variant: ButtonVariant; shape: ButtonShape }>`
 	position: relative;
@@ -63,6 +64,21 @@ export const ButtonContentStyle = styled.span`
 	z-index: 2;
 `;
 
+const rippleEffect = keyframes`
+	0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(10);
+    opacity: 0.375;
+  }
+  100% {
+    transform: scale(35);
+    opacity: 0;
+  }
+`;
+
 export const ButtonRippleStyle = styled.span<{ left: number; top: number }>`
 	width: 25px;
 	height: 25px;
@@ -70,7 +86,7 @@ export const ButtonRippleStyle = styled.span<{ left: number; top: number }>`
 	display: block;
 	content: '';
 	border-radius: 200px;
-	animation: 0.9s ease 1 forwards ripple-effect;
+	animation: 0.9s ease 1 forwards ${rippleEffect};
 	left: ${(props) => props.left}px;
 	top: ${(props) => props.top}px;
 	background-color: #e6e6e6;

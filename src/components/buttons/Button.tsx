@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, forwardRef, MouseEvent, useEffect, useState } from 'react';
+import { ComponentPropsWithRef, forwardRef, useEffect, useState } from 'react';
 import { Theme } from '../../common/types';
 import { ButtonContentStyle, ButtonRippleStyle, ButtonStyle } from './style';
 

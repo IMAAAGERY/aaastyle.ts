@@ -1,6 +1,6 @@
-import { ComponentPropsWithRef, forwardRef, MouseEvent, useEffect, useState } from 'react';
-import { Theme } from '../../common/types';
+import { ComponentPropsWithRef, forwardRef, useEffect, useState } from 'react';
 import { DEFAULT_THEME } from '../../common/constants';
+import { Theme } from '../../common/types';
 import { ButtonContentStyle, ButtonRippleStyle, ToggleButtonStyle } from './style';
 
 interface ToggleButtonProps extends ComponentPropsWithRef<'button'> {
