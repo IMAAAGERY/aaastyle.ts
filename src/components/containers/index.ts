@@ -5,3 +5,5 @@ export { default as MasterDetail } from './MasterDetail';
 export { default as Sidebar } from './Sidebar';
 export { default as SidebarItem } from './SidebarItem';
 export { default as View } from './View';
+export { default as NavbarItem } from './NavbarItem';
+export { default as Navbar } from './Navbar';

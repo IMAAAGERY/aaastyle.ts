@@ -41,6 +41,14 @@ export const DEFAULT_THEME: Theme = {
 		backgroundColor: '#f2f2f7',
 		color: '#000000',
 	},
+	navbar: {
+		backgroundColor: '#f2f2f7',
+		color: '#000000',
+	},
+	navbarItem: {
+		backgroundColor: '#f2f2f7',
+		color: '#000000',
+	},
 	container: {
 		backgroundColor: 'transparent',
 	},

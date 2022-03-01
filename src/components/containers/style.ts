@@ -133,3 +133,38 @@ export const SidebarItemStyle = styled.div`
 	padding: 8px;
 	box-sizing: border-box;
 `;
+
+export const NavbarStyle = styled.div`
+	position: sticky;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	left: 0;
+	top: 0;
+	min-height: 60px;
+	width: 100%;
+	overflow: hidden;
+	transition: 0.5s;
+	white-space: nowrap;
+	background-color: ${(props) => props.theme.navbar.backgroundColor};
+	color: ${(props) => props.theme.navbar.color};
+	padding: 0;
+	box-sizing: border-box;
+	box-shadow: 0px 1px 2px 0px rgb(60 64 67 / 30%), 0px 1px 3px 1px rgb(60 64 67 / 15%);
+`;
+
+export const NavbarItemStyle = styled.div`
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	color: ${(props) => props.theme.navbarItem.color};
+	background-color: ${(props) => props.theme.navbarItem.backgroundColor};
+	border-bottom: 1px solid rgba(144, 144, 144, 0.3);
+	width: 100%;
+	min-height: 50px;
+	padding: 8px;
+	box-sizing: border-box;
+`;

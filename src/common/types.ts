@@ -45,6 +45,14 @@ export type Theme = {
 		backgroundColor: string;
 		color: string;
 	};
+	navbar: {
+		backgroundColor: string;
+		color: string;
+	};
+	navbarItem: {
+		backgroundColor: string;
+		color: string;
+	};
 	container: {
 		backgroundColor: string;
 	};
