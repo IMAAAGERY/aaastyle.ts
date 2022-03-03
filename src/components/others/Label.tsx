@@ -21,12 +21,12 @@ const Label = forwardRef<HTMLDivElement, LabelProps>((props, ref) => {
 					if (index !== children.length - 1) {
 						return (
 							<>
-								{typeof component === 'string' ? <span>component</span> : component}
+								{typeof component === 'string' ? <span>{component}</span> : component}
 								<Spacer />
 							</>
 						);
 					}
-					return typeof component === 'string' ? <span>component</span> : component;
+					return typeof component === 'string' ? <span>{component}</span> : component;
 				});
 			}
 			return children;
