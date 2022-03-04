@@ -51,13 +51,10 @@ const OthersDemoView = () => {
 				</Icon>
 			</Box>
 			<Box>
-				<Label>
-					{
-						<Icon size='small'>
-							<StarIcon />
-						</Icon>
-					}
-					{'coucou'}
+				<Label label='Label example'>
+					<Icon size='small'>
+						<StarIcon />
+					</Icon>
 				</Label>
 			</Box>
 		</Container>

@@ -68,11 +68,10 @@ const ButtonDemo = () => {
 					</Label>
 				</FAB>
 				<FAB extended>
-					<Label>
+					<Label label='FAB with text'>
 						<Icon>
 							<StarIcon />
 						</Icon>
-						{'FAB with text'}
 					</Label>
 				</FAB>
 			</Box>

@@ -13,7 +13,7 @@ const InputsDemo = () => {
 				<Input type='text' placeholder='Coucou' />
 			</Box>
 			<Box>
-				<Select options={options} />
+				<Select placeholder='Select item' options={options} />
 			</Box>
 		</Container>
 	);

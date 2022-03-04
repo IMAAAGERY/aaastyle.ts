@@ -1769,10 +1769,10 @@ var ToggleButtonGroup = forwardRef(function (props, ref) {
 
 var InputStyle = styled.input(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n\tborder: none;\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n"], ["\n\tborder: none;\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n"])));
 var SelectWrapperStyle = styled.div(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject([""], [""])));
-var SelectStyle = styled.div(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n\tposition: relative;\n\tborder: none;\n\tborder-radius: 4px;\n"], ["\n\tposition: relative;\n\tborder: none;\n\tborder-radius: 4px;\n"])));
-var OptionsWrapperStyle = styled.div(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject([""], [""])));
-var OptionsListStyle = styled.ul(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject([""], [""])));
-var OptionStyle = styled.li(templateObject_6$1 || (templateObject_6$1 = __makeTemplateObject([""], [""])));
+var SelectStyle = styled.div(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n\tposition: relative;\n\tborder: none;\n\t/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */\n\tborder: 1px solid rgba(144, 144, 144, 0.3);\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tfont-size: 1em;\n\tpadding: 12px 24px 12px 24px;\n\tcursor: pointer;\n\n\t& > span {\n\t\tfont-weight: 600;\n\t}\n"], ["\n\tposition: relative;\n\tborder: none;\n\t/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */\n\tborder: 1px solid rgba(144, 144, 144, 0.3);\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tfont-size: 1em;\n\tpadding: 12px 24px 12px 24px;\n\tcursor: pointer;\n\n\t& > span {\n\t\tfont-weight: 600;\n\t}\n"])));
+var OptionsWrapperStyle = styled.div(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n\tposition: absolute;\n\tborder: 1px solid rgba(144, 144, 144, 0.3);\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tfont-size: 1em;\n\tfont-weight: 600;\n\tmargin-top: 8px;\n\tpadding: 0;\n"], ["\n\tposition: absolute;\n\tborder: 1px solid rgba(144, 144, 144, 0.3);\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tfont-size: 1em;\n\tfont-weight: 600;\n\tmargin-top: 8px;\n\tpadding: 0;\n"])));
+var OptionsListStyle = styled.ul(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n"], ["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n"])));
+var OptionStyle = styled.li(templateObject_6$1 || (templateObject_6$1 = __makeTemplateObject(["\n\tcursor: pointer;\n\tpadding: 12px 24px 12px 24px;\n\tmargin: 8px 0px 8px 0px;\n\tfont-weight: 500;\n\n\t&:hover {\n\t\t/* opacity: 0.8; */\n\t\tbackground-color: rgba(144, 144, 144, 0.3);\n\t}\n"], ["\n\tcursor: pointer;\n\tpadding: 12px 24px 12px 24px;\n\tmargin: 8px 0px 8px 0px;\n\tfont-weight: 500;\n\n\t&:hover {\n\t\t/* opacity: 0.8; */\n\t\tbackground-color: rgba(144, 144, 144, 0.3);\n\t}\n"])));
 var templateObject_1$1, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5$1, templateObject_6$1;
 
 var Input = forwardRef(function (props, ref) {
@@ -1781,8 +1781,24 @@ var Input = forwardRef(function (props, ref) {
 });
 
 var Select = forwardRef(function (props, ref) {
-    props.theme; props.placeholder; props.defaultValue; var options = props.options; props.className; props.style;
-    return (jsxRuntime.exports.jsxs(SelectWrapperStyle, { children: [jsxRuntime.exports.jsx(SelectStyle, { ref: ref }, void 0), jsxRuntime.exports.jsx(OptionsWrapperStyle, { children: jsxRuntime.exports.jsx(OptionsListStyle, { children: options.map(function (option) { return (jsxRuntime.exports.jsx(OptionStyle, __assign({ value: option.value }, { children: option.label }), option.value)); }) }, void 0) }, void 0)] }, void 0));
+    props.theme; var placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options; props.className; props.style;
+    var _a = useState(), selectedOption = _a[0], setSelectedOption = _a[1];
+    var _b = useState(false), showOptions = _b[0], setShowOptions = _b[1];
+    var getOption = function (value) {
+        return options.find(function (option) { return option.value === value; });
+    };
+    useEffect(function () {
+        if (defaultValue) {
+            var option = getOption(defaultValue);
+            setSelectedOption(option);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [defaultValue]);
+    var handleOptionClick = function (option) {
+        setSelectedOption(option);
+        setShowOptions(false);
+    };
+    return (jsxRuntime.exports.jsxs(SelectWrapperStyle, { children: [jsxRuntime.exports.jsx(SelectStyle, __assign({ ref: ref, onClick: function () { return setShowOptions(!showOptions); } }, { children: jsxRuntime.exports.jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }, void 0) }), void 0), jsxRuntime.exports.jsx(OptionsWrapperStyle, __assign({ style: { display: showOptions ? 'block' : 'none' } }, { children: jsxRuntime.exports.jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsxRuntime.exports.jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }, void 0) }), void 0)] }, void 0));
 });
 
 var Dropdown = forwardRef(function (props, ref) {

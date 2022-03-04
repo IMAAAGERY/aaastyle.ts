@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, forwardRef } from 'react';
+import { ComponentPropsWithRef, forwardRef, useEffect, useState } from 'react';
 import { Theme } from '../../common/types';
 import { OptionsListStyle, OptionStyle, OptionsWrapperStyle, SelectStyle, SelectWrapperStyle } from './style';
 
@@ -15,17 +15,38 @@ interface SelectProps extends ComponentPropsWithRef<'div'> {
 }
 
 const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
+	const { theme, placeholder, defaultValue, options, className, style } = props;
 
-    const { theme, placeholder, defaultValue, options, className, style } = props;
+	const [selectedOption, setSelectedOption] = useState<OptionProps | undefined>();
+
+	const [showOptions, setShowOptions] = useState<boolean>(false);
+
+	const getOption = (value: string | number) => {
+		return options.find((option) => option.value === value);
+	};
+
+	useEffect(() => {
+		if (defaultValue) {
+			let option = getOption(defaultValue);
+			setSelectedOption(option);
+		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [defaultValue]);
+
+	const handleOptionClick = (option: OptionProps) => {
+		setSelectedOption(option);
+		setShowOptions(false);
+	};
+
 	return (
 		<SelectWrapperStyle>
-			<SelectStyle ref={ref}>
-				{}
+			<SelectStyle ref={ref} onClick={() => setShowOptions(!showOptions)}>
+				<span>{(selectedOption && selectedOption.label) || placeholder}</span>
 			</SelectStyle>
-			<OptionsWrapperStyle>
+			<OptionsWrapperStyle style={{ display: showOptions ? 'block' : 'none' }}>
 				<OptionsListStyle>
-					{options.map((option) => (
-						<OptionStyle key={option.value} value={option.value}>
+					{options.map((option, index) => (
+						<OptionStyle onClick={() => handleOptionClick(option)} key={index} value={option.value}>
 							{option.label}
 						</OptionStyle>
 					))}
