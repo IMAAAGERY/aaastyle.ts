@@ -1,6 +1,7 @@
 import { ComponentPropsWithRef, forwardRef } from 'react';
 import { Theme } from '../../common/types';
 import { IconProps } from './Icon';
+import Spacer from './Spacer';
 import { LabelStyle } from './style';
 
 export interface LabelProps extends ComponentPropsWithRef<'div'> {
@@ -18,11 +19,21 @@ const Label = forwardRef<HTMLDivElement, LabelProps>((props, ref) => {
 			{reversed ? (
 				<>
 					<span>{label}</span>
-					{children}
+					{children && (
+						<>
+							<Spacer />
+							{children}
+						</>
+					)}
 				</>
 			) : (
 				<>
-					{children}
+					{children && (
+						<>
+							<Spacer />
+							{children}
+						</>
+					)}
 					<span>{label}</span>
 				</>
 			)}
