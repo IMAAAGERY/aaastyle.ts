@@ -1570,10 +1570,10 @@ var Navbar = require$$0.forwardRef(function (props, ref) {
     return (jsxRuntime.exports.jsx(styled.ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(NavbarStyle, __assign({ ref: ref, style: style, className: className }, { children: children }), void 0) }), void 0));
 });
 
-var ButtonStyle = styled__default["default"].button(templateObject_7$1 || (templateObject_7$1 = __makeTemplateObject(["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\twidth: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"], ["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\twidth: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"])), function (props) { return "".concat(props.theme.button.color[props.color]); }, function (props) {
+var ButtonStyle = styled__default["default"].button(templateObject_7$1 || (templateObject_7$1 = __makeTemplateObject(["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\tmin-width: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"], ["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\tmin-width: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"])), function (props) { return "".concat(props.theme.button.color[props.color]); }, function (props) {
     return (props.variant === 'outlined' && styled.css(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n\t\t\t\tcolor: #000000;\n\t\t\t\tborder: 3px solid ", ";\n\t\t\t\tbackground: none;\n\t\t\t"], ["\n\t\t\t\tcolor: #000000;\n\t\t\t\tborder: 3px solid ", ";\n\t\t\t\tbackground: none;\n\t\t\t"])), props.theme.button.borderColor[props.color])) ||
         (props.variant === 'contained' && styled.css(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n\t\t\t\tborder: none;\n\t\t\t\tbackground: ", ";\n\t\t\t"], ["\n\t\t\t\tborder: none;\n\t\t\t\tbackground: ", ";\n\t\t\t"])), props.theme.button.backgroundColor[props.color])) ||
-        (props.variant === 'text' && styled.css(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n\t\t\t\tcolor: #000000;\n\t\t\t\tborder: none;\n\t\t\t\tbackground: none;\n\t\t\t"], ["\n\t\t\t\tcolor: #000000;\n\t\t\t\tborder: none;\n\t\t\t\tbackground: none;\n\t\t\t"]))));
+        (props.variant === 'text' && styled.css(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n\t\t\t\tcolor: #000000;\n\t\t\t\tborder: none;\n\t\t\t\tbackground: none;\n\t\t\t\tpadding: 0;\n\t\t\t"], ["\n\t\t\t\tcolor: #000000;\n\t\t\t\tborder: none;\n\t\t\t\tbackground: none;\n\t\t\t\tpadding: 0;\n\t\t\t"]))));
 }, function (props) {
     return (props.shape === 'rounded' && styled.css(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n\t\t\t\tborder-radius: 12px;\n\t\t\t"], ["\n\t\t\t\tborder-radius: 12px;\n\t\t\t"])))) ||
         (props.shape === 'pill' && styled.css(templateObject_5$2 || (templateObject_5$2 = __makeTemplateObject(["\n\t\t\t\tborder-radius: 200px;\n\t\t\t"], ["\n\t\t\t\tborder-radius: 200px;\n\t\t\t"])))) ||
@@ -1838,27 +1838,14 @@ var Icon = require$$0.forwardRef(function (props, ref) {
     return (jsxRuntime.exports.jsx(IconStyle, __assign({ ref: ref, style: style, theme: theme, className: className, shape: shape || 'circle', size: size || 'medium' }, { children: children }), void 0));
 });
 
+var Label = require$$0.forwardRef(function (props, ref) {
+    var children = props.children, theme = props.theme, className = props.className, style = props.style, reversed = props.reversed, label = props.label;
+    return (jsxRuntime.exports.jsx(LabelStyle, __assign({ theme: theme, className: className, style: style, ref: ref }, { children: reversed ? (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [jsxRuntime.exports.jsx("span", { children: label }, void 0), children] }, void 0)) : (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [children, jsxRuntime.exports.jsx("span", { children: label }, void 0)] }, void 0)) }), void 0));
+});
+
 var Spacer = function (props) {
     return (jsxRuntime.exports.jsx(SpacerStyle, {}, void 0));
 };
-
-var Label = require$$0.forwardRef(function (props, ref) {
-    var children = props.children, theme = props.theme, className = props.className, style = props.style;
-    var childrenDestructuring = function () {
-        if (children) {
-            if (Array.isArray(children)) {
-                return children.map(function (component, index) {
-                    if (index !== children.length - 1) {
-                        return (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [typeof component === 'string' ? jsxRuntime.exports.jsx("span", { children: "component" }, void 0) : component, jsxRuntime.exports.jsx(Spacer, {}, void 0)] }, void 0));
-                    }
-                    return typeof component === 'string' ? jsxRuntime.exports.jsx("span", { children: "component" }, void 0) : component;
-                });
-            }
-            return children;
-        }
-    };
-    return (jsxRuntime.exports.jsx(LabelStyle, __assign({ theme: theme, className: className, style: style, ref: ref }, { children: childrenDestructuring() }), void 0));
-});
 
 var Toast = require$$0.forwardRef(function (props, ref) {
     props.children; var className = props.className, style = props.style, position = props.position, duration = props.duration, onClose = props.onClose, closable = props.closable, theme = props.theme;
