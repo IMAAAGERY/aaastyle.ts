@@ -30,8 +30,8 @@ const Label = forwardRef<HTMLDivElement, LabelProps>((props, ref) => {
 				<>
 					{children && (
 						<>
-							<Spacer />
 							{children}
+							<Spacer />
 						</>
 					)}
 					<span>{label}</span>

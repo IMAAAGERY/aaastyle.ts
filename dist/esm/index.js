@@ -1835,7 +1835,7 @@ var Spacer = function (props) {
 
 var Label = forwardRef(function (props, ref) {
     var children = props.children, theme = props.theme, className = props.className, style = props.style, reversed = props.reversed, label = props.label;
-    return (jsxRuntime.exports.jsx(LabelStyle, __assign({ theme: theme, className: className, style: style, ref: ref }, { children: reversed ? (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [jsxRuntime.exports.jsx("span", { children: label }, void 0), children && (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [jsxRuntime.exports.jsx(Spacer, {}, void 0), children] }, void 0))] }, void 0)) : (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [children && (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [jsxRuntime.exports.jsx(Spacer, {}, void 0), children] }, void 0)), jsxRuntime.exports.jsx("span", { children: label }, void 0)] }, void 0)) }), void 0));
+    return (jsxRuntime.exports.jsx(LabelStyle, __assign({ theme: theme, className: className, style: style, ref: ref }, { children: reversed ? (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [jsxRuntime.exports.jsx("span", { children: label }, void 0), children && (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [jsxRuntime.exports.jsx(Spacer, {}, void 0), children] }, void 0))] }, void 0)) : (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [children && (jsxRuntime.exports.jsxs(jsxRuntime.exports.Fragment, { children: [children, jsxRuntime.exports.jsx(Spacer, {}, void 0)] }, void 0)), jsxRuntime.exports.jsx("span", { children: label }, void 0)] }, void 0)) }), void 0));
 });
 
 var Toast = forwardRef(function (props, ref) {
