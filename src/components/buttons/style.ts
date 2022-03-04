@@ -9,7 +9,7 @@ export const ButtonStyle = styled.button<{ color: ButtonColor; variant: ButtonVa
 	justify-content: center;
 	align-items: center;
 	height: 40px;
-	width: 120px;
+	min-width: 120px;
 	margin: 8px;
 	border-radius: 4px;
 	color: ${(props) => `${props.theme.button.color[props.color]}`};
@@ -39,6 +39,7 @@ export const ButtonStyle = styled.button<{ color: ButtonColor; variant: ButtonVa
 				color: #000000;
 				border: none;
 				background: none;
+				padding: 0;
 			`)}
 
 	${(props) =>
