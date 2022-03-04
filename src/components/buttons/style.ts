@@ -40,6 +40,7 @@ export const ButtonStyle = styled.button<{ color: ButtonColor; variant: ButtonVa
 				border: none;
 				background: none;
 				padding: 0;
+				min-width: 0;
 			`)}
 
 	${(props) =>
