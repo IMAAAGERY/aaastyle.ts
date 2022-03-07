@@ -1,10 +1,20 @@
 import { ComponentPropsWithRef, forwardRef } from 'react';
-import { DropdownStyle } from './style';
+import { Theme } from '../../common/types';
+import { DropdownWrapperStyle, DropdownListStyle } from './style';
 
-interface DropdownProps extends ComponentPropsWithRef<'div'> {}
+export interface DropdownProps extends ComponentPropsWithRef<'ul'> {
+	theme?: Theme;
+}
 
-const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
-	return <DropdownStyle></DropdownStyle>;
+const Dropdown = forwardRef<HTMLUListElement, DropdownProps>((props, ref) => {
+	const { theme, className, style, children } = props;
+	return (
+		<DropdownWrapperStyle>
+			<DropdownListStyle ref={ref} theme={theme} className={className} style={style}>
+				{children}
+			</DropdownListStyle>
+		</DropdownWrapperStyle>
+	);
 });
 
 export default Dropdown;

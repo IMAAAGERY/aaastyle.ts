@@ -8,6 +8,8 @@ export const InputStyle = styled.input`
 export const SelectWrapperStyle = styled.div``;
 
 export const SelectStyle = styled.div`
+	display: flex;
+	justify-content: space-between;
 	position: relative;
 	border: none;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
@@ -15,7 +17,7 @@ export const SelectStyle = styled.div`
 	border-radius: 4px;
 	background-color: #ffffff;
 	font-size: 1em;
-	padding: 12px 24px 12px 24px;
+	padding: 12px 12px 12px 12px;
 	cursor: pointer;
 
 	& > span {

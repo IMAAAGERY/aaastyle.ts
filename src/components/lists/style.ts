@@ -27,14 +27,42 @@ export const ListItemStyle = styled.li`
 	line-height: 2.5;
 	width: 100%;
 
-	&:hover{
+	&:hover {
 		opacity: 0.8;
 	}
 `;
 
-
-export const DropdownStyle = styled.div`
-
+export const DropdownWrapperStyle = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid rgba(144, 144, 144, 0.3);
+	border-radius: 4px;
+	background-color: #ffffff;
+	padding: 0;
 `;
 
-export const DropdownItemStyle = styled.div``;
+export const DropdownListStyle = styled.ul`
+	list-style: none;
+	padding: 0;
+	margin: 0;
+`;
+
+export const DropdownItemStyle = styled.li`
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	cursor: pointer;
+	padding: 8px 12px;
+	margin: 0;
+	min-width: 100px;
+	min-height: 40px;
+
+	&:hover {
+		/* opacity: 0.8; */
+		background-color: rgba(144, 144, 144, 0.3);
+	}
+`;
