@@ -1813,7 +1813,7 @@ var Select = require$$0.forwardRef(function (props, ref) {
 
 var Dropdown = require$$0.forwardRef(function (props, ref) {
     var theme = props.theme, className = props.className, style = props.style, children = props.children;
-    return (jsxRuntime.exports.jsx(DropdownWrapperStyle, { children: jsxRuntime.exports.jsx(DropdownListStyle, __assign({ ref: ref, theme: theme, className: className, style: style }, { children: children }), void 0) }, void 0));
+    return (jsxRuntime.exports.jsx(DropdownWrapperStyle, __assign({ ref: ref, theme: theme, className: className, style: style }, { children: jsxRuntime.exports.jsx(DropdownListStyle, { children: children }, void 0) }), void 0));
 });
 
 var DropdownItem = require$$0.forwardRef(function (props, ref) {
