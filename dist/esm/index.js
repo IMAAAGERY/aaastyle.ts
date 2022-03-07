@@ -1782,7 +1782,7 @@ var Input = forwardRef(function (props, ref) {
 });
 
 var Select = forwardRef(function (props, ref) {
-    props.theme; var placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options; props.className; props.style;
+    var theme = props.theme, placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options, className = props.className, style = props.style;
     var _a = useState(), selectedOption = _a[0], setSelectedOption = _a[1];
     var _b = useState(false), showOptions = _b[0], setShowOptions = _b[1];
     var getOption = function (value) {
@@ -1799,7 +1799,7 @@ var Select = forwardRef(function (props, ref) {
         setSelectedOption(option);
         setShowOptions(false);
     };
-    return (jsxRuntime.exports.jsxs(SelectWrapperStyle, { children: [jsxRuntime.exports.jsx(SelectStyle, __assign({ ref: ref, onClick: function () { return setShowOptions(!showOptions); } }, { children: jsxRuntime.exports.jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }, void 0) }), void 0), jsxRuntime.exports.jsx(OptionsWrapperStyle, __assign({ style: { display: showOptions ? 'block' : 'none' } }, { children: jsxRuntime.exports.jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsxRuntime.exports.jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }, void 0) }), void 0)] }, void 0));
+    return (jsxRuntime.exports.jsxs(SelectWrapperStyle, __assign({ className: className, style: style, theme: theme }, { children: [jsxRuntime.exports.jsx(SelectStyle, __assign({ ref: ref, onClick: function () { return setShowOptions(!showOptions); } }, { children: jsxRuntime.exports.jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }, void 0) }), void 0), jsxRuntime.exports.jsx(OptionsWrapperStyle, __assign({ style: { display: showOptions ? 'block' : 'none' } }, { children: jsxRuntime.exports.jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsxRuntime.exports.jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }, void 0) }), void 0)] }), void 0));
 });
 
 var Dropdown = forwardRef(function (props, ref) {
