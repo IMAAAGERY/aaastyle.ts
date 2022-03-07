@@ -39,7 +39,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 	};
 
 	return (
-		<SelectWrapperStyle>
+		<SelectWrapperStyle className={className} style={style} theme={theme}>
 			<SelectStyle ref={ref} onClick={() => setShowOptions(!showOptions)}>
 				<span>{(selectedOption && selectedOption.label) || placeholder}</span>
 			</SelectStyle>
