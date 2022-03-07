@@ -1772,7 +1772,6 @@ var ToggleButtonGroup = require$$0.forwardRef(function (props, ref) {
             newSelectedButtons[index] = !newSelectedButtons[index];
             setSelectedButtons(__spreadArray(__spreadArray([], selectedButtons, true), [selectedButtons[index]], false));
         }
-        console.log(selectedButtons);
     };
     return (jsxRuntime.exports.jsx(ToggleButtonGroupStyle, __assign({ orientation: orientation || 'horizontal', ref: ref, style: style, className: className }, { children: children.map(function (child, index) { return (jsxRuntime.exports.jsx(ToggleButton, __assign({ positionInGroup: index === 0 ? 'first' : index === (children.length - 1) ? 'last' : undefined, selected: selectedButtons[index], onClick: function () { return handleToggleButtonClick(index); } }, { children: child }), index)); }) }), void 0));
 });
@@ -1791,7 +1790,7 @@ var Input = require$$0.forwardRef(function (props, ref) {
 });
 
 var Select = require$$0.forwardRef(function (props, ref) {
-    var theme = props.theme, placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options, className = props.className, style = props.style;
+    var theme = props.theme, placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options, className = props.className, style = props.style, onChange = props.onChange;
     var _a = require$$0.useState(), selectedOption = _a[0], setSelectedOption = _a[1];
     var _b = require$$0.useState(false), showOptions = _b[0], setShowOptions = _b[1];
     var getOption = function (value) {
@@ -1807,6 +1806,9 @@ var Select = require$$0.forwardRef(function (props, ref) {
     var handleOptionClick = function (option) {
         setSelectedOption(option);
         setShowOptions(false);
+        if (onChange) {
+            onChange(option);
+        }
     };
     return (jsxRuntime.exports.jsxs(SelectWrapperStyle, __assign({ className: className, style: style, theme: theme }, { children: [jsxRuntime.exports.jsx(SelectStyle, __assign({ ref: ref, onClick: function () { return setShowOptions(!showOptions); } }, { children: jsxRuntime.exports.jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }, void 0) }), void 0), jsxRuntime.exports.jsx(OptionsWrapperStyle, __assign({ style: { display: showOptions ? 'block' : 'none' } }, { children: jsxRuntime.exports.jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsxRuntime.exports.jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }, void 0) }), void 0)] }), void 0));
 });

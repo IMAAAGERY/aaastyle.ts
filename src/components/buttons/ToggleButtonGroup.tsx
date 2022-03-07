@@ -23,9 +23,7 @@ const ToggleButtonGroup = forwardRef<HTMLDivElement, ToggleButtonGroupProps>((pr
 			let newSelectedButtons = [...selectedButtons];
 			newSelectedButtons[index] = !newSelectedButtons[index];
 			setSelectedButtons([...selectedButtons, selectedButtons[index]]);
-		}
-		console.log(selectedButtons);
-		
+		}		
 	};
 
 	return (

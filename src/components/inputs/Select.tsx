@@ -12,10 +12,11 @@ interface SelectProps extends ComponentPropsWithRef<'div'> {
 	placeholder?: string;
 	defaultValue?: string | number;
 	options: OptionProps[];
+	onChange?: (value: any) => void;
 }
 
 const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
-	const { theme, placeholder, defaultValue, options, className, style } = props;
+	const { theme, placeholder, defaultValue, options, className, style, onChange } = props;
 
 	const [selectedOption, setSelectedOption] = useState<OptionProps | undefined>();
 
@@ -36,6 +37,9 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 	const handleOptionClick = (option: OptionProps) => {
 		setSelectedOption(option);
 		setShowOptions(false);
+		if (onChange) {
+			onChange(option);
+		}
 	};
 
 	return (
