@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const InputStyle = styled.input`
 	border: none;
@@ -7,9 +7,10 @@ export const InputStyle = styled.input`
 
 export const SelectWrapperStyle = styled.div``;
 
-export const SelectStyle = styled.div`
+export const SelectStyle = styled.div<{ rotate?: boolean }>`
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	position: relative;
 	border: none;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
@@ -17,12 +18,24 @@ export const SelectStyle = styled.div`
 	border-radius: 4px;
 	background-color: #ffffff;
 	font-size: 1em;
-	padding: 12px 12px 12px 12px;
+	padding: 12px 8px;
 	cursor: pointer;
 
 	& > span {
 		font-weight: 600;
 	}
+
+	& > svg {
+		transition: all 0.3s;
+	}
+
+	${(props) =>
+		props.rotate &&
+		css`
+			& > svg {
+				transform: rotate(180deg);
+			}
+		`}
 `;
 
 export const OptionsWrapperStyle = styled.div`
