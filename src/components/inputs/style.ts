@@ -5,7 +5,9 @@ export const InputStyle = styled.input`
 	border-bottom: 1px solid rgba(144, 144, 144, 0.3);
 `;
 
-export const SelectWrapperStyle = styled.div``;
+export const SelectWrapperStyle = styled.div`
+	position: relative;
+`;
 
 export const SelectStyle = styled.div<{ rotate?: boolean }>`
 	display: flex;
@@ -38,7 +40,7 @@ export const SelectStyle = styled.div<{ rotate?: boolean }>`
 		`}
 `;
 
-export const OptionsWrapperStyle = styled.div`
+export const OptionsWrapperStyle = styled.div<{ show: boolean }>`
 	position: absolute;
 	border: 1px solid rgba(144, 144, 144, 0.3);
 	border-radius: 4px;
@@ -47,6 +49,11 @@ export const OptionsWrapperStyle = styled.div`
 	font-weight: 600;
 	margin-top: 8px;
 	padding: 0;
+	transition: max-height 0.2s ease-in-out;
+	max-height: ${(props) => (props.show ? '100vh' : '0')};
+	overflow: hidden;
+	width: 100%;
+
 `;
 
 export const OptionsListStyle = styled.ul`

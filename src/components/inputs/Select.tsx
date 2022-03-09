@@ -51,17 +51,15 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 					<path d='M7 10l5 5 5-5H7z' />
 				</svg>
 			</SelectStyle>
-			{showOptions && (
-				<OptionsWrapperStyle>
-					<OptionsListStyle>
-						{options.map((option, index) => (
-							<OptionStyle onClick={() => handleOptionClick(option)} key={index} value={option.value}>
-								{option.label}
-							</OptionStyle>
-						))}
-					</OptionsListStyle>
-				</OptionsWrapperStyle>
-			)}
+			<OptionsWrapperStyle show={showOptions}>
+				<OptionsListStyle>
+					{options.map((option, index) => (
+						<OptionStyle onClick={() => handleOptionClick(option)} key={index} value={option.value}>
+							{option.label}
+						</OptionStyle>
+					))}
+				</OptionsListStyle>
+			</OptionsWrapperStyle>
 		</SelectWrapperStyle>
 	);
 });
