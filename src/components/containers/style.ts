@@ -24,8 +24,6 @@ export const ContainerStyle = styled.div<{ vertical?: boolean }>`
 	position: relative;
 	flex-direction: ${(props) => (props.vertical ? 'column' : 'row')};
 	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
 	background-color: ${(props) => props.theme.container.backgroundColor};
 	padding: 8px;
 	@media (max-width: 768px) {
@@ -151,7 +149,6 @@ export const NavbarStyle = styled.div`
 	color: ${(props) => props.theme.navbar.color};
 	padding: 0;
 	box-sizing: border-box;
-	box-shadow: 0px 1px 2px 0px rgb(60 64 67 / 30%), 0px 1px 3px 1px rgb(60 64 67 / 15%);
 `;
 
 export const NavbarItemStyle = styled.div`
