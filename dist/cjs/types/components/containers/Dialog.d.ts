@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef } from 'react';
 import { Theme } from '../../common/types';
 export declare type PositionType = 'top' | 'center' | 'bottom';
-interface DialogProps extends ComponentPropsWithRef<'div'> {
+export interface DialogProps extends ComponentPropsWithRef<'div'> {
     theme?: Theme;
     closeOnClickOutside?: boolean;
     onClose?: () => void;

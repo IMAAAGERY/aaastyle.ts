@@ -6,7 +6,7 @@ import { useClickOutside } from '../../utils';
 import { DialogBackgroundStyle, DialogStyle } from './style';
 
 export type PositionType = 'top' | 'center' | 'bottom';
-interface DialogProps extends ComponentPropsWithRef<'div'> {
+export interface DialogProps extends ComponentPropsWithRef<'div'> {
 	theme?: Theme;
 	closeOnClickOutside?: boolean;
 	onClose?: () => void;
@@ -20,8 +20,8 @@ const Dialog = forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
 	useClickOutside(dialogRef, onClose);
 
 	return (
-		<DialogBackgroundStyle ref={ref}>
-			<DialogStyle position={position} ref={closeOnClickOutside ? dialogRef : undefined} style={style} className={className}>
+		<DialogBackgroundStyle position={position} ref={ref}>
+			<DialogStyle ref={closeOnClickOutside ? dialogRef : undefined} style={style} className={className}>
 				{children}
 			</DialogStyle>
 		</DialogBackgroundStyle>

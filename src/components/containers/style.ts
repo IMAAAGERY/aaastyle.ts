@@ -65,7 +65,10 @@ export const MasterDetailGroupTitleStyle = styled.span`
 	align-self: flex-start;
 `;
 
-export const DialogBackgroundStyle = styled.div`
+export const DialogBackgroundStyle = styled.div<{ position?: PositionType }>`
+	display: flex;
+	justify-content: center;
+	align-items: ${(props) => (props.position === 'top' ? 'flex-start' : props.position === 'bottom' ? 'flex-end' : 'center')};
 	position: fixed;
 	z-index: 1000;
 	top: 0;
@@ -73,19 +76,16 @@ export const DialogBackgroundStyle = styled.div`
 	width: 100vw;
 	height: 100vh;
 	background-color: ${(props) => props.theme.dialogBackground.backgroundColor};
+	margin: 0;
+	padding: 100px 0;
+	box-sizing: border-box;
 `;
 
-export const DialogStyle = styled.div<{ position?: PositionType }>`
+export const DialogStyle = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: start;
-	align-self: center;
-	justify-self: center;
-	position: fixed;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	top: ${(props) => (props.position === 'top' ? '15%' : props.position === 'bottom' ? '85%' : '50%')};
 	min-width: 200px;
 	min-height: 200px;
 	background-color: ${(props) => props.theme.dialog.backgroundColor};
@@ -93,7 +93,7 @@ export const DialogStyle = styled.div<{ position?: PositionType }>`
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 12px;
 	padding: 8px;
-	color: ${(props) => props.theme.dialog.color}; ;
+	color: ${(props) => props.theme.dialog.color};
 `;
 
 export const SidebarStyle = styled.aside<{ collapsed?: boolean }>`
