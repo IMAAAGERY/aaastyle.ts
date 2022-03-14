@@ -70,6 +70,7 @@ export type Theme = {
 	};
 	dialog: {
 		backgroundColor: string;
+		color: string;
 	};
 	dialogBackground: {
 		backgroundColor: string;

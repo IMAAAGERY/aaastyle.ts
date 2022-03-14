@@ -1387,8 +1387,8 @@ var ContainerStyle = styled__default["default"].div(templateObject_2$4 || (templ
 var BoxStyle = styled__default["default"].div(templateObject_3$4 || (templateObject_3$4 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: ", ";\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tborder-radius: 12px;\n\tbox-sizing: border-box;\n\tbox-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n\tbackground-color: ", ";\n\tpadding: 8px;\n\tmargin: 8px;\n\n\t@media (max-width: 768px) {\n\t\tflex-direction: column;\n\t}\n"], ["\n\tdisplay: flex;\n\tflex-direction: ", ";\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tborder-radius: 12px;\n\tbox-sizing: border-box;\n\tbox-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n\tbackground-color: ", ";\n\tpadding: 8px;\n\tmargin: 8px;\n\n\t@media (max-width: 768px) {\n\t\tflex-direction: column;\n\t}\n"])), function (props) { return (props.vertical ? 'column' : 'row'); }, function (props) { return props.theme.box.backgroundColor; });
 var MasterDetailStyle = styled__default["default"].div(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\tflex-grow: 1;\n\n\t@media (max-width: 768px) {\n\t\tflex-grow: unset;\n\t}\n"], ["\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\tflex-grow: 1;\n\n\t@media (max-width: 768px) {\n\t\tflex-grow: unset;\n\t}\n"])));
 var MasterDetailGroupTitleStyle = styled__default["default"].span(templateObject_5$4 || (templateObject_5$4 = __makeTemplateObject(["\n\tdisplay: flex;\n\talign-self: flex-start;\n"], ["\n\tdisplay: flex;\n\talign-self: flex-start;\n"])));
-var DialogBackgroundStyle = styled__default["default"].div(templateObject_6$3 || (templateObject_6$3 = __makeTemplateObject(["\n\tposition: fixed;\n\tz-index: 1000;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100vw;\n\theight: 100vh;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: ", ";\n\topacity: 0.3;\n"], ["\n\tposition: fixed;\n\tz-index: 1000;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100vw;\n\theight: 100vh;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: ", ";\n\topacity: 0.3;\n"])), function (props) { return props.theme.dialogBackground.backgroundColor; });
-var DialogStyle = styled__default["default"].div(templateObject_7$3 || (templateObject_7$3 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n\tjustify-content: start;\n\talign-self: center;\n\tjustify-self: center;\n\tposition: fixed;\n\tmin-width: 200px;\n\tmin-height: 200px;\n\tbackground-color: ", ";\n\tborder-radius: 12px;\n\tpadding: 8px;\n\tcolor: #000000;\n"], ["\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n\tjustify-content: start;\n\talign-self: center;\n\tjustify-self: center;\n\tposition: fixed;\n\tmin-width: 200px;\n\tmin-height: 200px;\n\tbackground-color: ", ";\n\tborder-radius: 12px;\n\tpadding: 8px;\n\tcolor: #000000;\n"])), function (props) { return props.theme.dialog.backgroundColor; });
+var DialogBackgroundStyle = styled__default["default"].div(templateObject_6$3 || (templateObject_6$3 = __makeTemplateObject(["\n\tposition: fixed;\n\tz-index: 1000;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100vw;\n\theight: 100vh;\n\tbackground-color: ", ";\n"], ["\n\tposition: fixed;\n\tz-index: 1000;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100vw;\n\theight: 100vh;\n\tbackground-color: ", ";\n"])), function (props) { return props.theme.dialogBackground.backgroundColor; });
+var DialogStyle = styled__default["default"].div(templateObject_7$3 || (templateObject_7$3 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n\tjustify-content: start;\n\talign-self: center;\n\tjustify-self: center;\n\tposition: fixed;\n\tleft: 50%;\n\ttransform: translate(-50%, -50%);\n\ttop: ", ";\n\tmin-width: 200px;\n\tmin-height: 200px;\n\tbackground-color: ", ";\n\tbox-sizing: border-box;\n\tbox-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n\tborder-radius: 12px;\n\tpadding: 8px;\n\tcolor: ", "; ;\n"], ["\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n\tjustify-content: start;\n\talign-self: center;\n\tjustify-self: center;\n\tposition: fixed;\n\tleft: 50%;\n\ttransform: translate(-50%, -50%);\n\ttop: ", ";\n\tmin-width: 200px;\n\tmin-height: 200px;\n\tbackground-color: ", ";\n\tbox-sizing: border-box;\n\tbox-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n\tborder-radius: 12px;\n\tpadding: 8px;\n\tcolor: ", "; ;\n"])), function (props) { return (props.position === 'top' ? '15%' : props.position === 'bottom' ? '85%' : '50%'); }, function (props) { return props.theme.dialog.backgroundColor; }, function (props) { return props.theme.dialog.color; });
 var SidebarStyle = styled__default["default"].aside(templateObject_8$2 || (templateObject_8$2 = __makeTemplateObject(["\n\tposition: sticky;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tleft: 0;\n\ttop: 0;\n\theight: 100vh;\n\twidth: ", ";\n\toverflow-x: hidden;\n\ttransition: 0.5s;\n\twhite-space: nowrap;\n\tbackground-color: ", ";\n\tcolor: ", ";\n\tpadding: 0;\n\tbox-sizing: border-box;\n\t@media (max-width: 768px) {\n\t\t/* position: absolute; */\n\t\twidth: ", ";\n\t}\n"], ["\n\tposition: sticky;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tleft: 0;\n\ttop: 0;\n\theight: 100vh;\n\twidth: ", ";\n\toverflow-x: hidden;\n\ttransition: 0.5s;\n\twhite-space: nowrap;\n\tbackground-color: ", ";\n\tcolor: ", ";\n\tpadding: 0;\n\tbox-sizing: border-box;\n\t@media (max-width: 768px) {\n\t\t/* position: absolute; */\n\t\twidth: ", ";\n\t}\n"])), function (props) { return (props.collapsed ? '70px' : '250px'); }, function (props) { return props.theme.sidebar.backgroundColor; }, function (props) { return props.theme.sidebar.color; }, function (props) { return (props.collapsed ? '0' : '200px'); });
 var SidebarItemStyle = styled__default["default"].div(templateObject_9$2 || (templateObject_9$2 = __makeTemplateObject(["\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\twidth: 100%;\n\tmin-height: 50px;\n\tpadding: 8px;\n\tbox-sizing: border-box;\n"], ["\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\twidth: 100%;\n\tmin-height: 50px;\n\tpadding: 8px;\n\tbox-sizing: border-box;\n"])), function (props) { return props.theme.sidebarItem.color; }, function (props) { return props.theme.sidebarItem.backgroundColor; });
 var NavbarStyle = styled__default["default"].div(templateObject_10$2 || (templateObject_10$2 = __makeTemplateObject(["\n\tposition: sticky;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: space-between;\n\talign-items: center;\n\tleft: 0;\n\ttop: 0;\n\tmin-height: 60px;\n\twidth: 100%;\n\toverflow: hidden;\n\ttransition: 0.5s;\n\twhite-space: nowrap;\n\tbackground-color: ", ";\n\tcolor: ", ";\n\tpadding: 0;\n\tbox-sizing: border-box;\n"], ["\n\tposition: sticky;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: space-between;\n\talign-items: center;\n\tleft: 0;\n\ttop: 0;\n\tmin-height: 60px;\n\twidth: 100%;\n\toverflow: hidden;\n\ttransition: 0.5s;\n\twhite-space: nowrap;\n\tbackground-color: ", ";\n\tcolor: ", ";\n\tpadding: 0;\n\tbox-sizing: border-box;\n"])), function (props) { return props.theme.navbar.backgroundColor; }, function (props) { return props.theme.navbar.color; });
@@ -1461,9 +1461,10 @@ var DEFAULT_THEME = {
     },
     dialog: {
         backgroundColor: '#ffffff',
+        color: '#000000',
     },
     dialogBackground: {
-        backgroundColor: '#909090',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
     },
     card: {
         backgroundColor: '#ffffff',
@@ -1515,9 +1516,46 @@ var Container = require$$0.forwardRef(function (props, ref) {
     return (jsxRuntime.exports.jsx(styled.ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(ContainerStyle, __assign({ ref: ref, style: style, className: className, vertical: vertical }, { children: children }), void 0) }), void 0));
 });
 
+var useClickOutside = function (ref, callback) {
+    require$$0.useEffect(function () {
+        var startedInside = false;
+        var startedWhenMounted = false;
+        var listener = function (event) {
+            // Do nothing if `mousedown` or `touchstart` started inside ref element
+            if (startedInside || !startedWhenMounted)
+                return;
+            // Do nothing if clicking ref's element or descendent elements
+            if (!ref.current || ref.current.contains(event.target))
+                return;
+            callback(event);
+        };
+        var validateEventStart = function (event) {
+            startedWhenMounted = ref.current;
+            startedInside = ref.current && ref.current.contains(event.target);
+        };
+        document.addEventListener('mousedown', validateEventStart);
+        document.addEventListener('touchstart', validateEventStart);
+        document.addEventListener('click', listener);
+        document.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                callback(event);
+            }
+        });
+        return function () {
+            document.removeEventListener('mousedown', validateEventStart);
+            document.removeEventListener('touchstart', validateEventStart);
+            document.removeEventListener('click', listener);
+            document.removeEventListener('keyup', listener);
+        };
+    }, [ref, callback]);
+};
+
 var Dialog = require$$0.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, theme = props.theme, className = props.className;
-    return (jsxRuntime.exports.jsx(styled.ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(DialogBackgroundStyle, { children: jsxRuntime.exports.jsx(DialogStyle, __assign({ ref: ref, style: style, className: className }, { children: children }), void 0) }, void 0) }), void 0));
+    var children = props.children, style = props.style; props.theme; var className = props.className, closeOnClickOutside = props.closeOnClickOutside, position = props.position, onClose = props.onClose;
+    var dialogRef = require$$0.useRef(null);
+    useClickOutside(dialogRef, onClose);
+    return (jsxRuntime.exports.jsx(DialogBackgroundStyle, __assign({ ref: ref }, { children: jsxRuntime.exports.jsx(DialogStyle, __assign({ position: position, ref: closeOnClickOutside ? dialogRef : undefined, style: style, className: className }, { children: children }), void 0) }), void 0));
 });
 
 var ListStyle = styled__default["default"].ul(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"], ["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"])), function (props) { return props.theme.list.color; });
@@ -1923,4 +1961,5 @@ exports.ToggleButton = ToggleButton;
 exports.ToggleButtonGroup = ToggleButtonGroup;
 exports.ToggleSwitch = ToggleSwitch;
 exports.View = View;
+exports.useClickOutside = useClickOutside;
 //# sourceMappingURL=index.js.map

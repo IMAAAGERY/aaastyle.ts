@@ -66,9 +66,10 @@ export const DEFAULT_THEME: Theme = {
 	},
 	dialog: {
 		backgroundColor: '#ffffff',
+		color: '#000000',
 	},
 	dialogBackground: {
-		backgroundColor: '#909090',
+		backgroundColor: 'rgba(0, 0, 0, 0.1)',
 	},
 	card: {
 		backgroundColor: '#ffffff',

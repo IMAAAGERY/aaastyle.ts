@@ -26,7 +26,7 @@ const OthersDemoView = () => {
 			<Toast ref={toastRefBotCenter} position='bottom-center' duration={3000} closable />
 			<Toast ref={toastRefBotLeft} position='bottom-left' duration={3000} closable />
 			<Toast ref={toastRefBotRight} position='bottom-right' duration={3000} closable />
-			{showDialog && <Dialog>This is a dialog box</Dialog>}
+			{showDialog && <Dialog onClose={() => setShowDialog(false)} closeOnClickOutside>This is a dialog box</Dialog>}
 			<Box>
 				<Button onClick={() => showToast(toastRefTopCenter)}>Toast top-center</Button>
 				<Button onClick={() => showToast(toastRefTopLeft)}>Toast top-left</Button>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PositionType } from './Dialog';
 
 export const ViewStyle = styled.div`
 	display: flex;
@@ -71,14 +72,10 @@ export const DialogBackgroundStyle = styled.div`
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	background-color: ${(props) => props.theme.dialogBackground.backgroundColor};
-	opacity: 0.3;
 `;
 
-export const DialogStyle = styled.div`
+export const DialogStyle = styled.div<{ position?: PositionType }>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -86,12 +83,17 @@ export const DialogStyle = styled.div`
 	align-self: center;
 	justify-self: center;
 	position: fixed;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	top: ${(props) => (props.position === 'top' ? '15%' : props.position === 'bottom' ? '85%' : '50%')};
 	min-width: 200px;
 	min-height: 200px;
 	background-color: ${(props) => props.theme.dialog.backgroundColor};
+	box-sizing: border-box;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 12px;
 	padding: 8px;
-	color: #000000;
+	color: ${(props) => props.theme.dialog.color}; ;
 `;
 
 export const SidebarStyle = styled.aside<{ collapsed?: boolean }>`
