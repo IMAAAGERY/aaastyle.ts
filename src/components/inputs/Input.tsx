@@ -7,10 +7,10 @@ interface InputProps extends ComponentPropsWithRef<'input'> {
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-	const { style, className, theme, value, defaultValue, defaultChecked, type, placeholder } = props;
+	const { style, className, theme, value, defaultValue, defaultChecked, type, placeholder, onChange, onFocus } = props;
 
 	return(
-		<InputStyle ref={ref} value={value} defaultValue={defaultValue} defaultChecked={defaultChecked} placeholder={placeholder} type={type} theme={theme} className={className} style={style} />
+		<InputStyle onChange={onChange} onFocus={onFocus} ref={ref} value={value} defaultValue={defaultValue} defaultChecked={defaultChecked} placeholder={placeholder} type={type} theme={theme} className={className} style={style} />
 	)
 });
 

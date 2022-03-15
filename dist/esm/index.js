@@ -1816,8 +1816,8 @@ var OptionStyle = styled.li(templateObject_7$1 || (templateObject_7$1 = __makeTe
 var templateObject_1$1, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5$1, templateObject_6$1, templateObject_7$1;
 
 var Input = forwardRef(function (props, ref) {
-    var style = props.style, className = props.className, theme = props.theme, value = props.value, defaultValue = props.defaultValue, defaultChecked = props.defaultChecked, type = props.type, placeholder = props.placeholder;
-    return (jsxRuntime.exports.jsx(InputStyle, { ref: ref, value: value, defaultValue: defaultValue, defaultChecked: defaultChecked, placeholder: placeholder, type: type, theme: theme, className: className, style: style }, void 0));
+    var style = props.style, className = props.className, theme = props.theme, value = props.value, defaultValue = props.defaultValue, defaultChecked = props.defaultChecked, type = props.type, placeholder = props.placeholder, onChange = props.onChange, onFocus = props.onFocus;
+    return (jsxRuntime.exports.jsx(InputStyle, { onChange: onChange, onFocus: onFocus, ref: ref, value: value, defaultValue: defaultValue, defaultChecked: defaultChecked, placeholder: placeholder, type: type, theme: theme, className: className, style: style }, void 0));
 });
 
 var Select = forwardRef(function (props, ref) {
