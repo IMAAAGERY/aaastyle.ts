@@ -1,11 +1,10 @@
+import { Box, Button, Container, FAB, Icon, Label, ToggleButton, ToggleButtonGroup, ToggleSwitch } from 'aaastyle';
 import { ReactComponent as AlignCenterIcon } from '../assets/icons/align-center.svg';
 import { ReactComponent as AlignLeftIcon } from '../assets/icons/align-left.svg';
 import { ReactComponent as AlignRightIcon } from '../assets/icons/align-right.svg';
 import { ReactComponent as BoldIcon } from '../assets/icons/bold.svg';
 import { ReactComponent as ItalicIcon } from '../assets/icons/italic.svg';
-import { ReactComponent as UnderlinedIcon } from '../assets/icons/underlined.svg';
 import { ReactComponent as StarIcon } from '../assets/icons/star.svg';
-import { Button, ToggleButton, ToggleButtonGroup, ToggleSwitch, Box, Container, FAB, Label, Icon} from 'aaastyle';
 
 const ButtonDemo = () => {
 	return (
