@@ -1560,8 +1560,8 @@ var Dialog = require$$0.forwardRef(function (props, ref) {
 
 var ListStyle = styled__default["default"].ul(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"], ["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"])), function (props) { return props.theme.list.color; });
 var ListItemStyle = styled__default["default"].li(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n\tposition: relative;\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\tcursor: pointer;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tbox-sizing: border-box;\n\tline-height: 2.5;\n\twidth: 100%;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n"], ["\n\tposition: relative;\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\tcursor: pointer;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tbox-sizing: border-box;\n\tline-height: 2.5;\n\twidth: 100%;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n"])), function (props) { return props.theme.listItem.color; }, function (props) { return props.theme.listItem.backgroundColor; });
-var DropdownWrapperStyle = styled__default["default"].div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tborder: 1px solid rgba(144, 144, 144, 0.3);\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tpadding: 0;\n"], ["\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tborder: 1px solid rgba(144, 144, 144, 0.3);\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tpadding: 0;\n"])));
-var DropdownListStyle = styled__default["default"].ul(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n"], ["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n"])));
+var DropdownWrapperStyle = styled__default["default"].div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tpadding: 0;\n\tborder: ", ";\n"], ["\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tpadding: 0;\n\tborder: ", ";\n"])), function (props) { return (props.show ? '1px solid rgba(144, 144, 144, 0.3)' : 'none'); });
+var DropdownListStyle = styled__default["default"].ul(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n\ttransition: max-height 0.5s;\n\tmax-height: ", ";\n\toverflow: hidden;\n"], ["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n\ttransition: max-height 0.5s;\n\tmax-height: ", ";\n\toverflow: hidden;\n"])), function (props) { return (props.show ? '500px' : '0'); });
 var DropdownItemStyle = styled__default["default"].li(templateObject_5$3 || (templateObject_5$3 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: center;\n\tcursor: pointer;\n\tpadding: 8px 12px;\n\tmargin: 0;\n\tmin-width: 100px;\n\tmin-height: 40px;\n\n\t&:hover {\n\t\t/* opacity: 0.8; */\n\t\tbackground-color: rgba(144, 144, 144, 0.3);\n\t}\n"], ["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: center;\n\tcursor: pointer;\n\tpadding: 8px 12px;\n\tmargin: 0;\n\tmin-width: 100px;\n\tmin-height: 40px;\n\n\t&:hover {\n\t\t/* opacity: 0.8; */\n\t\tbackground-color: rgba(144, 144, 144, 0.3);\n\t}\n"])));
 var templateObject_1$3, templateObject_2$3, templateObject_3$3, templateObject_4$3, templateObject_5$3;
 
@@ -1854,8 +1854,15 @@ var Select = require$$0.forwardRef(function (props, ref) {
 });
 
 var Dropdown = require$$0.forwardRef(function (props, ref) {
-    var theme = props.theme, className = props.className, style = props.style, children = props.children;
-    return (jsxRuntime.exports.jsx(DropdownWrapperStyle, __assign({ ref: ref, theme: theme, className: className, style: style }, { children: jsxRuntime.exports.jsx(DropdownListStyle, { children: children }, void 0) }), void 0));
+    var theme = props.theme, className = props.className, style = props.style, children = props.children; props.position;
+    var _a = require$$0.useState(false), show = _a[0], setShow = _a[1];
+    require$$0.useEffect(function () {
+        // setShow(true);
+        // setTimeout(() => {
+        setShow(true);
+        // }, 2000);
+    }, []);
+    return (jsxRuntime.exports.jsx(DropdownWrapperStyle, __assign({ ref: ref, theme: theme, className: className, style: style, show: show }, { children: jsxRuntime.exports.jsx(DropdownListStyle, __assign({ show: show }, { children: children }), void 0) }), void 0));
 });
 
 var DropdownItem = require$$0.forwardRef(function (props, ref) {

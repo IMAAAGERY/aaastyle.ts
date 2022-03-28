@@ -32,21 +32,25 @@ export const ListItemStyle = styled.li`
 	}
 `;
 
-export const DropdownWrapperStyle = styled.div`
+export const DropdownWrapperStyle = styled.div<{ show?: boolean }>`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid rgba(144, 144, 144, 0.3);
 	border-radius: 4px;
 	background-color: #ffffff;
 	padding: 0;
+	border: ${(props) => (props.show ? '1px solid rgba(144, 144, 144, 0.3)' : 'none')};
 `;
 
-export const DropdownListStyle = styled.ul`
+
+export const DropdownListStyle = styled.ul<{ show?: boolean }>`
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	transition: max-height 0.5s;
+	max-height: ${(props) => (props.show ? '500px' : '0')};
+	overflow: hidden;
 `;
 
 export const DropdownItemStyle = styled.li`

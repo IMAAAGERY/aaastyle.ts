@@ -31,10 +31,10 @@ const Demo = () => {
 						{
 							title: <h3>Components</h3>,
 							items: [
-								{ title: 'List', content: ListDemo },
-								{ title: 'Buttons', content: ButtonDemo },
-								{ title: 'Others', content: OthersDemo },
-								{ title: 'Inputs', content: InputsDemo },
+								{ title: 'List', content: <ListDemo/> },
+								{ title: 'Buttons', content: <ButtonDemo/> },
+								{ title: 'Others', content: <OthersDemo/> },
+								{ title: 'Inputs', content: <InputsDemo/> },
 							],
 						},
 						{

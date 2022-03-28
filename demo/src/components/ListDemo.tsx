@@ -21,4 +21,4 @@ const ListDemo = () => {
 	);
 };
 
-export default ListDemo();
+export default ListDemo;
