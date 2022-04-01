@@ -1,6 +1,4 @@
 import { ComponentPropsWithRef, forwardRef, useRef } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { DEFAULT_THEME } from '../../common/constants';
 import { Theme } from '../../common/types';
 import { useClickOutside } from '../../utils';
 import { DialogBackgroundStyle, DialogStyle } from './style';
@@ -21,7 +19,7 @@ const Dialog = forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
 
 	return (
 		<DialogBackgroundStyle position={position} ref={ref}>
-			<DialogStyle ref={closeOnClickOutside ? dialogRef : undefined} style={style} className={className}>
+			<DialogStyle ref={closeOnClickOutside ? dialogRef : undefined} theme={theme} style={style} className={className}>
 				{children}
 			</DialogStyle>
 		</DialogBackgroundStyle>

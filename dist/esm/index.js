@@ -1386,6 +1386,94 @@ var NavbarStyle = styled.div(templateObject_10$2 || (templateObject_10$2 = __mak
 var NavbarItemStyle = styled.div(templateObject_11$2 || (templateObject_11$2 = __makeTemplateObject(["\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: center;\n\talign-items: center;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\twidth: 100%;\n\tmin-height: 50px;\n\tpadding: 8px;\n\tbox-sizing: border-box;\n"], ["\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: center;\n\talign-items: center;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\twidth: 100%;\n\tmin-height: 50px;\n\tpadding: 8px;\n\tbox-sizing: border-box;\n"])), function (props) { return props.theme.navbarItem.color; }, function (props) { return props.theme.navbarItem.backgroundColor; });
 var templateObject_1$4, templateObject_2$4, templateObject_3$4, templateObject_4$4, templateObject_5$4, templateObject_6$3, templateObject_7$3, templateObject_8$2, templateObject_9$2, templateObject_10$2, templateObject_11$2;
 
+var Box = forwardRef(function (props, ref) {
+    var children = props.children, style = props.style, className = props.className, theme = props.theme, vertical = props.vertical;
+    return (jsxRuntime.exports.jsx(BoxStyle, __assign({ ref: ref, theme: theme, style: style, className: className, vertical: vertical }, { children: children }), void 0));
+});
+
+var Container = forwardRef(function (props, ref) {
+    var children = props.children, style = props.style, className = props.className, theme = props.theme, vertical = props.vertical;
+    return (jsxRuntime.exports.jsx(ContainerStyle, __assign({ theme: theme, ref: ref, style: style, className: className, vertical: vertical }, { children: children }), void 0));
+});
+
+var useClickOutside = function (ref, callback) {
+    useEffect(function () {
+        var startedInside = false;
+        var startedWhenMounted = false;
+        var listener = function (event) {
+            // Do nothing if `mousedown` or `touchstart` started inside ref element
+            if (startedInside || !startedWhenMounted)
+                return;
+            // Do nothing if clicking ref's element or descendent elements
+            if (!ref.current || ref.current.contains(event.target))
+                return;
+            callback(event);
+        };
+        var validateEventStart = function (event) {
+            startedWhenMounted = ref.current;
+            startedInside = ref.current && ref.current.contains(event.target);
+        };
+        document.addEventListener('mousedown', validateEventStart);
+        document.addEventListener('touchstart', validateEventStart);
+        document.addEventListener('click', listener);
+        document.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                callback(event);
+            }
+        });
+        return function () {
+            document.removeEventListener('mousedown', validateEventStart);
+            document.removeEventListener('touchstart', validateEventStart);
+            document.removeEventListener('click', listener);
+            document.removeEventListener('keyup', listener);
+        };
+    }, [ref, callback]);
+};
+
+var Dialog = forwardRef(function (props, ref) {
+    var children = props.children, style = props.style, theme = props.theme, className = props.className, closeOnClickOutside = props.closeOnClickOutside, position = props.position, onClose = props.onClose;
+    var dialogRef = useRef(null);
+    useClickOutside(dialogRef, onClose);
+    return (jsxRuntime.exports.jsx(DialogBackgroundStyle, __assign({ position: position, ref: ref }, { children: jsxRuntime.exports.jsx(DialogStyle, __assign({ ref: closeOnClickOutside ? dialogRef : undefined, theme: theme, style: style, className: className }, { children: children }), void 0) }), void 0));
+});
+
+var ListStyle = styled.ul(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"], ["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"])), function (props) { return props.theme.list.color; });
+var ListItemStyle = styled.li(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n\tposition: relative;\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\tcursor: pointer;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tbox-sizing: border-box;\n\tline-height: 2.5;\n\twidth: 100%;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n"], ["\n\tposition: relative;\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\tcursor: pointer;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tbox-sizing: border-box;\n\tline-height: 2.5;\n\twidth: 100%;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n"])), function (props) { return props.theme.listItem.color; }, function (props) { return props.theme.listItem.backgroundColor; });
+var DropdownWrapperStyle = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tpadding: 0;\n\tborder: ", ";\n"], ["\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tpadding: 0;\n\tborder: ", ";\n"])), function (props) { return (props.show ? '1px solid rgba(144, 144, 144, 0.3)' : 'none'); });
+var DropdownListStyle = styled.ul(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n\ttransition: max-height 0.5s;\n\tmax-height: ", ";\n\toverflow: hidden;\n"], ["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n\ttransition: max-height 0.5s;\n\tmax-height: ", ";\n\toverflow: hidden;\n"])), function (props) { return (props.show ? '500px' : '0'); });
+var DropdownItemStyle = styled.li(templateObject_5$3 || (templateObject_5$3 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: center;\n\tcursor: pointer;\n\tpadding: 8px 12px;\n\tmargin: 0;\n\tmin-width: 100px;\n\tmin-height: 40px;\n\n\t&:hover {\n\t\t/* opacity: 0.8; */\n\t\tbackground-color: rgba(144, 144, 144, 0.3);\n\t}\n"], ["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: center;\n\tcursor: pointer;\n\tpadding: 8px 12px;\n\tmargin: 0;\n\tmin-width: 100px;\n\tmin-height: 40px;\n\n\t&:hover {\n\t\t/* opacity: 0.8; */\n\t\tbackground-color: rgba(144, 144, 144, 0.3);\n\t}\n"])));
+var templateObject_1$3, templateObject_2$3, templateObject_3$3, templateObject_4$3, templateObject_5$3;
+
+var List = forwardRef(function (props, ref) {
+    var children = props.children, style = props.style, className = props.className, theme = props.theme;
+    return (jsxRuntime.exports.jsx(ListStyle, __assign({ ref: ref, style: style, className: className, theme: theme }, { children: children }), void 0));
+});
+
+var ListItem = forwardRef(function (props, ref) {
+    var children = props.children, style = props.style, className = props.className, theme = props.theme, onClick = props.onClick;
+    return (jsxRuntime.exports.jsx(ListItemStyle, __assign({ onClick: onClick, ref: ref, style: style, theme: theme, className: className }, { children: children }), void 0));
+});
+
+var Sidebar = forwardRef(function (props, ref) {
+    var children = props.children, style = props.style, className = props.className, theme = props.theme, collapsed = props.collapsed;
+    return (jsxRuntime.exports.jsx(SidebarStyle, __assign({ theme: theme, ref: ref, style: style, className: className, collapsed: collapsed }, { children: children }), void 0));
+});
+
+var SidebarItem = forwardRef(function (props, ref) {
+    var children = props.children, style = props.style, className = props.className, theme = props.theme;
+    return (jsxRuntime.exports.jsx(SidebarItemStyle, __assign({ ref: ref, theme: theme, style: style, className: className }, { children: children }), void 0));
+});
+
+var MasterDetail = forwardRef(function (props, ref) {
+    var children = props.children, style = props.style, className = props.className, theme = props.theme, header = props.header, footer = props.footer, collapsed = props.collapsed;
+    var _a = useState(), currentContent = _a[0], setCurrentContent = _a[1];
+    return (jsxRuntime.exports.jsxs(MasterDetailStyle, __assign({ ref: ref, style: style, theme: theme, className: className }, { children: [jsxRuntime.exports.jsxs(Sidebar, __assign({ collapsed: collapsed }, { children: [header && jsxRuntime.exports.jsx(SidebarItem, { children: header }, void 0), children === null || children === void 0 ? void 0 : children.map(function (group, index) {
+                        var _a;
+                        return (jsxRuntime.exports.jsxs(SidebarItem, { children: [jsxRuntime.exports.jsx(MasterDetailGroupTitleStyle, { children: collapsed ? group.collapsedTitle : group.title }, void 0), jsxRuntime.exports.jsx(List, { children: (_a = group.items) === null || _a === void 0 ? void 0 : _a.map(function (item, index) { return (jsxRuntime.exports.jsx(ListItem, __assign({ onClick: function () { return setCurrentContent(item.content); } }, { children: collapsed ? item.collapsedTitle : item.title }), index)); }) }, void 0)] }, index));
+                    }), footer && jsxRuntime.exports.jsx(SidebarItem, __assign({ style: { justifySelf: 'flex-end' } }, { children: footer }), void 0)] }), void 0), jsxRuntime.exports.jsx(Container, __assign({ vertical: true, style: { backgroundColor: '#f2f2f7', borderLeft: '1px solid rgba(144, 144, 144, 0.3)', flexGrow: 1 } }, { children: currentContent }), void 0)] }), void 0));
+});
+
 var DEFAULT_THEME = {
     button: {
         backgroundColor: {
@@ -1497,94 +1585,6 @@ var DEFAULT_THEME = {
     },
 };
 
-var Box = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, vertical = props.vertical;
-    return (jsxRuntime.exports.jsx(ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(BoxStyle, __assign({ ref: ref, style: style, className: className, vertical: vertical }, { children: children }), void 0) }), void 0));
-});
-
-var Container = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, vertical = props.vertical;
-    return (jsxRuntime.exports.jsx(ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(ContainerStyle, __assign({ ref: ref, style: style, className: className, vertical: vertical }, { children: children }), void 0) }), void 0));
-});
-
-var useClickOutside = function (ref, callback) {
-    useEffect(function () {
-        var startedInside = false;
-        var startedWhenMounted = false;
-        var listener = function (event) {
-            // Do nothing if `mousedown` or `touchstart` started inside ref element
-            if (startedInside || !startedWhenMounted)
-                return;
-            // Do nothing if clicking ref's element or descendent elements
-            if (!ref.current || ref.current.contains(event.target))
-                return;
-            callback(event);
-        };
-        var validateEventStart = function (event) {
-            startedWhenMounted = ref.current;
-            startedInside = ref.current && ref.current.contains(event.target);
-        };
-        document.addEventListener('mousedown', validateEventStart);
-        document.addEventListener('touchstart', validateEventStart);
-        document.addEventListener('click', listener);
-        document.addEventListener('keyup', function (event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                callback(event);
-            }
-        });
-        return function () {
-            document.removeEventListener('mousedown', validateEventStart);
-            document.removeEventListener('touchstart', validateEventStart);
-            document.removeEventListener('click', listener);
-            document.removeEventListener('keyup', listener);
-        };
-    }, [ref, callback]);
-};
-
-var Dialog = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style; props.theme; var className = props.className, closeOnClickOutside = props.closeOnClickOutside, position = props.position, onClose = props.onClose;
-    var dialogRef = useRef(null);
-    useClickOutside(dialogRef, onClose);
-    return (jsxRuntime.exports.jsx(DialogBackgroundStyle, __assign({ position: position, ref: ref }, { children: jsxRuntime.exports.jsx(DialogStyle, __assign({ ref: closeOnClickOutside ? dialogRef : undefined, style: style, className: className }, { children: children }), void 0) }), void 0));
-});
-
-var ListStyle = styled.ul(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"], ["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"])), function (props) { return props.theme.list.color; });
-var ListItemStyle = styled.li(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n\tposition: relative;\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\tcursor: pointer;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tbox-sizing: border-box;\n\tline-height: 2.5;\n\twidth: 100%;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n"], ["\n\tposition: relative;\n\tborder-bottom: 1px solid rgba(144, 144, 144, 0.3);\n\tcursor: pointer;\n\tcolor: ", ";\n\tbackground-color: ", ";\n\tbox-sizing: border-box;\n\tline-height: 2.5;\n\twidth: 100%;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n"])), function (props) { return props.theme.listItem.color; }, function (props) { return props.theme.listItem.backgroundColor; });
-var DropdownWrapperStyle = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tpadding: 0;\n\tborder: ", ";\n"], ["\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tborder-radius: 4px;\n\tbackground-color: #ffffff;\n\tpadding: 0;\n\tborder: ", ";\n"])), function (props) { return (props.show ? '1px solid rgba(144, 144, 144, 0.3)' : 'none'); });
-var DropdownListStyle = styled.ul(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n\ttransition: max-height 0.5s;\n\tmax-height: ", ";\n\toverflow: hidden;\n"], ["\n\tlist-style: none;\n\tpadding: 0;\n\tmargin: 0;\n\ttransition: max-height 0.5s;\n\tmax-height: ", ";\n\toverflow: hidden;\n"])), function (props) { return (props.show ? '500px' : '0'); });
-var DropdownItemStyle = styled.li(templateObject_5$3 || (templateObject_5$3 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: center;\n\tcursor: pointer;\n\tpadding: 8px 12px;\n\tmargin: 0;\n\tmin-width: 100px;\n\tmin-height: 40px;\n\n\t&:hover {\n\t\t/* opacity: 0.8; */\n\t\tbackground-color: rgba(144, 144, 144, 0.3);\n\t}\n"], ["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-start;\n\talign-items: center;\n\tcursor: pointer;\n\tpadding: 8px 12px;\n\tmargin: 0;\n\tmin-width: 100px;\n\tmin-height: 40px;\n\n\t&:hover {\n\t\t/* opacity: 0.8; */\n\t\tbackground-color: rgba(144, 144, 144, 0.3);\n\t}\n"])));
-var templateObject_1$3, templateObject_2$3, templateObject_3$3, templateObject_4$3, templateObject_5$3;
-
-var List = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsxRuntime.exports.jsx(ListStyle, __assign({ ref: ref, style: style, className: className, theme: theme }, { children: children }), void 0));
-});
-
-var ListItem = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, onClick = props.onClick;
-    return (jsxRuntime.exports.jsx(ListItemStyle, __assign({ onClick: onClick, ref: ref, style: style, theme: theme, className: className }, { children: children }), void 0));
-});
-
-var Sidebar = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, collapsed = props.collapsed;
-    return (jsxRuntime.exports.jsx(ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(SidebarStyle, __assign({ ref: ref, style: style, className: className, collapsed: collapsed }, { children: children }), void 0) }), void 0));
-});
-
-var SidebarItem = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsxRuntime.exports.jsx(ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(SidebarItemStyle, __assign({ ref: ref, style: style, className: className }, { children: children }), void 0) }), void 0));
-});
-
-var MasterDetail = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, header = props.header, footer = props.footer, collapsed = props.collapsed;
-    var _a = useState(), currentContent = _a[0], setCurrentContent = _a[1];
-    return (jsxRuntime.exports.jsx(ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsxs(MasterDetailStyle, __assign({ ref: ref, style: style, className: className }, { children: [jsxRuntime.exports.jsxs(Sidebar, __assign({ collapsed: collapsed }, { children: [header && jsxRuntime.exports.jsx(SidebarItem, { children: header }, void 0), children === null || children === void 0 ? void 0 : children.map(function (group, index) {
-                            var _a;
-                            return (jsxRuntime.exports.jsxs(SidebarItem, { children: [jsxRuntime.exports.jsx(MasterDetailGroupTitleStyle, { children: collapsed ? group.collapsedTitle : group.title }, void 0), jsxRuntime.exports.jsx(List, { children: (_a = group.items) === null || _a === void 0 ? void 0 : _a.map(function (item, index) { return (jsxRuntime.exports.jsx(ListItem, __assign({ onClick: function () { return setCurrentContent(item.content); } }, { children: collapsed ? item.collapsedTitle : item.title }), index)); }) }, void 0)] }, index));
-                        }), footer && jsxRuntime.exports.jsx(SidebarItem, __assign({ style: { justifySelf: 'flex-end' } }, { children: footer }), void 0)] }), void 0), jsxRuntime.exports.jsx(Container, __assign({ vertical: true, style: { backgroundColor: '#f2f2f7', borderLeft: '1px solid rgba(144, 144, 144, 0.3)', flexGrow: 1 } }, { children: currentContent }), void 0)] }), void 0) }), void 0));
-});
-
 var View = forwardRef(function (props, ref) {
     var children = props.children, style = props.style, className = props.className, theme = props.theme;
     return (jsxRuntime.exports.jsx(ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(ViewStyle, __assign({ style: style, className: className, ref: ref }, { children: children }), void 0) }), void 0));
@@ -1592,12 +1592,12 @@ var View = forwardRef(function (props, ref) {
 
 var NavbarItem = forwardRef(function (props, ref) {
     var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsxRuntime.exports.jsx(ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(NavbarItemStyle, __assign({ ref: ref, style: style, className: className }, { children: children }), void 0) }), void 0));
+    return (jsxRuntime.exports.jsx(NavbarItemStyle, __assign({ ref: ref, theme: theme, style: style, className: className }, { children: children }), void 0));
 });
 
 var Navbar = forwardRef(function (props, ref) {
     var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsxRuntime.exports.jsx(ThemeProvider, __assign({ theme: theme || DEFAULT_THEME }, { children: jsxRuntime.exports.jsx(NavbarStyle, __assign({ ref: ref, style: style, className: className }, { children: children }), void 0) }), void 0));
+    return (jsxRuntime.exports.jsx(NavbarStyle, __assign({ theme: theme, ref: ref, style: style, className: className }, { children: children }), void 0));
 });
 
 var ButtonStyle = styled.button(templateObject_7$2 || (templateObject_7$2 = __makeTemplateObject(["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\tmin-width: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"], ["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\tmin-width: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"])), function (props) { return "".concat(props.theme.button.color[props.color]); }, function (props) {
@@ -1845,13 +1845,10 @@ var Select = forwardRef(function (props, ref) {
 });
 
 var Dropdown = forwardRef(function (props, ref) {
-    var theme = props.theme, className = props.className, style = props.style, children = props.children; props.position;
+    var theme = props.theme, className = props.className, style = props.style, children = props.children;
     var _a = useState(false), show = _a[0], setShow = _a[1];
     useEffect(function () {
-        // setShow(true);
-        // setTimeout(() => {
         setShow(true);
-        // }, 2000);
     }, []);
     return (jsxRuntime.exports.jsx(DropdownWrapperStyle, __assign({ ref: ref, theme: theme, className: className, style: style, show: show }, { children: jsxRuntime.exports.jsx(DropdownListStyle, __assign({ show: show }, { children: children }), void 0) }), void 0));
 });
@@ -1907,8 +1904,8 @@ var Label = forwardRef(function (props, ref) {
 });
 
 var Toast = forwardRef(function (props, ref) {
-    props.children; var className = props.className, style = props.style, position = props.position, duration = props.duration, onClose = props.onClose, closable = props.closable, theme = props.theme;
-    var _a = useState('default'); _a[0]; var setColor = _a[1];
+    var children = props.children, className = props.className, style = props.style, position = props.position, duration = props.duration, onClose = props.onClose, closable = props.closable, theme = props.theme;
+    var _a = useState('default'), type = _a[0], setType = _a[1];
     var _b = useState(''), message = _b[0], setMessage = _b[1];
     var _c = useState(false), show = _c[0], setShow = _c[1];
     useEffect(function () {
@@ -1919,20 +1916,20 @@ var Toast = forwardRef(function (props, ref) {
         // eslint-disable-next-line
     }, [show]);
     var toast = function (type, message) {
-        setColor(type || 'default');
+        setType(type || 'default');
         setMessage(message || '');
         setShow(true);
     };
     useImperativeHandle(ref, function () { return ({
         toast: function () {
-            toast('default', 'Hello world!');
+            toast(type, message);
         },
     }); });
     var handleClick = function (e) {
         closable && setShow(false);
         onClose && onClose();
     };
-    return (jsxRuntime.exports.jsx(ToastStyle, __assign({ closable: closable || false, onClick: handleClick, ref: ref, className: className, style: style, theme: theme, position: position || 'top-center', show: show }, { children: message }), void 0));
+    return (jsxRuntime.exports.jsx(ToastStyle, __assign({ closable: closable || false, onClick: handleClick, ref: ref, className: className, style: style, theme: theme, position: position || 'top-center', show: show }, { children: children || message }), void 0));
 });
 
 export { Box, Button, Container, Dialog, Dropdown, DropdownItem, FAB, Icon, Input, Label, List, ListItem, MasterDetail, Navbar, NavbarItem, Select, Sidebar, SidebarItem, Spacer, Toast, ToggleButton, ToggleButtonGroup, ToggleSwitch, View, useClickOutside };

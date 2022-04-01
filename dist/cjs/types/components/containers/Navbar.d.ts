@@ -1,5 +1,5 @@
-import { ComponentPropsWithRef } from "react";
-import { Theme } from "../../common/types";
+import { ComponentPropsWithRef } from 'react';
+import { Theme } from '../../common/types';
 export interface NavbarProps extends ComponentPropsWithRef<'nav'> {
     theme?: Theme;
 }
