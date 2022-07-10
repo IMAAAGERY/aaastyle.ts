@@ -1,6 +1,6 @@
 import { IconShape, IconSize } from './Icon';
 import styled, { css } from 'styled-components';
-import { ToastPosition, ToastType } from './Toast';
+import { ToastPosition } from './Toast';
 
 export const SpacerStyle = styled.div`
 	height: 8px;
@@ -99,7 +99,6 @@ export const IconStyle = styled.div<{ shape: IconShape; size: IconSize }>`
 		width: fit-content;
 		height: 100%;
 	}
-	/* border-radius: ${(props) => handleIconShape(props.shape)}; */
 `;
 
 export const LabelStyle = styled.div`

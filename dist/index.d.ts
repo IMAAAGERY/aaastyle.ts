@@ -282,7 +282,7 @@ declare type ToastPosition = 'top-left' | 'top-center' | 'top-right' | 'bottom-l
 interface ToastProps extends ComponentPropsWithRef<'div'> {
     position?: ToastPosition;
     duration?: number;
-    onClose?: () => void;
+    onClose?: (e: React.MouseEvent<HTMLDivElement>) => void;
     closable?: boolean;
     theme?: Theme;
 }
