@@ -14,19 +14,35 @@ const OthersDemoView = () => {
 
 	const showToast = (ref: any) => {
 		if (ref.current) {
-			ref.current.toast('Hello world');
+			ref.current.toast('warning', '3233');
 		}
 	};
 
 	return (
 		<Container vertical>
-			<Toast ref={toastRefTopCenter} position='top-center' duration={3000} closable />
-			<Toast ref={toastRefTopLeft} position='top-left' duration={3000} closable />
-			<Toast ref={toastRefTopRight} position='top-right' duration={3000} closable />
-			<Toast ref={toastRefBotCenter} position='bottom-center' duration={3000} closable />
-			<Toast ref={toastRefBotLeft} position='bottom-left' duration={3000} closable />
-			<Toast ref={toastRefBotRight} position='bottom-right' duration={3000} closable />
-			{showDialog && <Dialog position='top' onClose={() => setShowDialog(false)} closeOnClickOutside>This is a dialog box</Dialog>}
+			<Toast ref={toastRefTopCenter} position='top-center' duration={3000} closable>
+				Top-Center
+			</Toast>
+			<Toast ref={toastRefTopLeft} position='top-left' duration={3000} closable>
+				Top-Left
+			</Toast>
+			<Toast ref={toastRefTopRight} position='top-right' duration={3000} closable>
+				Top-Right
+			</Toast>
+			<Toast ref={toastRefBotCenter} position='bottom-center' duration={3000} closable>
+				Bottom-Center
+			</Toast>
+			<Toast ref={toastRefBotLeft} position='bottom-left' duration={3000} closable>
+				Bottom-Left
+			</Toast>
+			<Toast ref={toastRefBotRight} position='bottom-right' duration={3000} closable>
+				Bottom-Right
+			</Toast>
+			{showDialog && (
+				<Dialog position='top' onClose={() => setShowDialog(false)} closeOnClickOutside>
+					This is a dialog box
+				</Dialog>
+			)}
 			<Box>
 				<Button onClick={() => showToast(toastRefTopCenter)}>Toast top-center</Button>
 				<Button onClick={() => showToast(toastRefTopLeft)}>Toast top-left</Button>

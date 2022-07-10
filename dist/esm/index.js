@@ -547,15 +547,7 @@ var handleIconSize = function (size) {
             return css(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n\t\t\t\twidth: 128px;\n\t\t\t\theight: 128px;\n\t\t\t"], ["\n\t\t\t\twidth: 128px;\n\t\t\t\theight: 128px;\n\t\t\t"])));
     }
 };
-var handleIconShape = function (shape) {
-    switch (shape) {
-        case 'circle':
-            return '100%';
-        case 'square':
-            return '0';
-    }
-};
-var IconStyle = styled.div(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\t", ";\n\tcolor: ", ";\n\tbackground-color: ", ";\n\n\t& * {\n\t\twidth: fit-content;\n\t\theight: 100%;\n\t}\n\t/* border-radius: ", "; */\n"], ["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\t", ";\n\tcolor: ", ";\n\tbackground-color: ", ";\n\n\t& * {\n\t\twidth: fit-content;\n\t\theight: 100%;\n\t}\n\t/* border-radius: ", "; */\n"])), function (props) { return handleIconSize(props.size); }, function (props) { return props.theme.icon.color; }, function (props) { return props.theme.icon.backgroundColor; }, function (props) { return handleIconShape(props.shape); });
+var IconStyle = styled.div(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\t", ";\n\tcolor: ", ";\n\tbackground-color: ", ";\n\n\t& * {\n\t\twidth: fit-content;\n\t\theight: 100%;\n\t}\n"], ["\n\tbox-sizing: border-box;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\t", ";\n\tcolor: ", ";\n\tbackground-color: ", ";\n\n\t& * {\n\t\twidth: fit-content;\n\t\theight: 100%;\n\t}\n"])), function (props) { return handleIconSize(props.size); }, function (props) { return props.theme.icon.color; }, function (props) { return props.theme.icon.backgroundColor; });
 var LabelStyle = styled.div(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: center;\n\talign-items: center;\n\tbox-sizing: border-box;\n\twidth: fit-content;\n\tpadding: 12px;\n"], ["\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: center;\n\talign-items: center;\n\tbox-sizing: border-box;\n\twidth: fit-content;\n\tpadding: 12px;\n"])));
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13;
 
@@ -575,9 +567,7 @@ var Label = forwardRef(function (props, ref) {
 
 var Toast = forwardRef(function (props, ref) {
     var children = props.children, className = props.className, style = props.style, position = props.position, duration = props.duration, onClose = props.onClose, closable = props.closable, theme = props.theme;
-    var _a = useState('default'), type = _a[0], setType = _a[1];
-    var _b = useState(''), message = _b[0], setMessage = _b[1];
-    var _c = useState(false), show = _c[0], setShow = _c[1];
+    var _a = useState(false), show = _a[0], setShow = _a[1];
     useEffect(function () {
         if (duration) {
             var timer_1 = setTimeout(function () { return setShow(false); }, duration);
@@ -585,21 +575,19 @@ var Toast = forwardRef(function (props, ref) {
         }
         // eslint-disable-next-line
     }, [show]);
-    var toast = function (type, message) {
-        setType(type || 'default');
-        setMessage(message || '');
+    var toast = function () {
         setShow(true);
     };
     useImperativeHandle(ref, function () { return ({
         toast: function () {
-            toast(type, message);
+            toast();
         },
     }); });
     var handleClick = function (e) {
         closable && setShow(false);
-        onClose && onClose();
+        onClose && onClose(e);
     };
-    return (jsx(ToastStyle, __assign({ closable: closable || false, onClick: handleClick, ref: ref, className: className, style: style, theme: theme, position: position || 'top-center', show: show }, { children: children || message })));
+    return (jsx(ToastStyle, __assign({ closable: closable || false, onClick: handleClick, ref: ref, className: className, style: style, theme: theme, position: position || 'top-center', show: show }, { children: children })));
 });
 
 export { Box, Button, Container, Dialog, Dropdown, DropdownItem, FAB, Icon, Input, Label, List, ListItem, MasterDetail, Navbar, NavbarItem, Select, Sidebar, SidebarItem, Spacer, Toast, ToggleButton, ToggleButtonGroup, ToggleSwitch, View, useClickOutside };
