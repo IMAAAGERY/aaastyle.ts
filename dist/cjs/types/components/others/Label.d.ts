@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef } from 'react';
 import { Theme } from '../../common/types';
 import { IconProps } from './Icon';
-export interface LabelProps extends ComponentPropsWithRef<'div'> {
+export interface LabelProps extends Omit<ComponentPropsWithRef<'div'>, 'children'> {
     children?: IconProps;
     theme?: Theme;
     reversed?: boolean;

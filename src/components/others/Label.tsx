@@ -4,7 +4,7 @@ import { IconProps } from './Icon';
 import Spacer from './Spacer';
 import { LabelStyle } from './style';
 
-export interface LabelProps extends ComponentPropsWithRef<'div'> {
+export interface LabelProps extends Omit<ComponentPropsWithRef<'div'>, 'children'> {
 	children?: IconProps;
 	theme?: Theme;
 	reversed?: boolean;

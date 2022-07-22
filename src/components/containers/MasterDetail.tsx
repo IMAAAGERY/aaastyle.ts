@@ -19,7 +19,7 @@ export type MasterDetailItem = {
 	content?: ReactNode;
 };
 
-interface MasterDetailProps extends ComponentPropsWithRef<'div'> {
+interface MasterDetailProps extends Omit<ComponentPropsWithRef<'div'>, 'children'> {
 	theme?: Theme;
 	header?: JSX.Element | string;
 	children?: MasterDetailGroup[];
