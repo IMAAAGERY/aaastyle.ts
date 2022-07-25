@@ -1,6 +1,5 @@
-import { ComponentPropsWithRef, forwardRef } from 'react';
+import { ComponentPropsWithRef, forwardRef, useId } from 'react';
 import { ToggleSwitchWrapperStyle, ToggleSwitchLabelStyle, ToggleSwitchStyle } from './style';
-import { v4 as uuidv4 } from 'uuid';
 
 interface ToggleSwitchProps extends ComponentPropsWithRef<'input'> {
     children?: null;
@@ -9,7 +8,7 @@ interface ToggleSwitchProps extends ComponentPropsWithRef<'input'> {
 const ToggleSwitch = forwardRef<HTMLInputElement, ToggleSwitchProps>((props, ref) => {
 	const { style, className, onClick, onChange, disabled, checked } = props;
 
-	const id = uuidv4();
+	const id = useId();
 
 	return (
 		<ToggleSwitchWrapperStyle>
