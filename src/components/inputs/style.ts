@@ -66,14 +66,18 @@ export const OptionStyle = styled.li`
 	padding: 12px 24px 12px 24px;
 	margin: 8px 0px 8px 0px;
 	font-weight: 500;
+	height: 1em;
 
 	&:hover {
-		/* opacity: 0.8; */
 		background-color: rgba(144, 144, 144, 0.3);
 	}
 `;
 
 export const DisabledOptionStyle = styled(OptionStyle)`
 	cursor: default;
-	color: rgba(144, 144, 144, 0.3);
+	color: rgba(0, 0, 0, 0.5);
+
+	&:hover {
+		background-color: #ffffff;
+	}
 `;

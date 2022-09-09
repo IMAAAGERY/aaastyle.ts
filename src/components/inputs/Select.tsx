@@ -60,7 +60,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 					{options.map((option, index) => (
 						<>
 							{option.disabled ? (
-								<DisabledOptionStyle key={index}></DisabledOptionStyle>
+								<DisabledOptionStyle key={index}>{option.label}</DisabledOptionStyle>
 							) : (
 								<OptionStyle onClick={() => handleOptionClick(option)} key={index} value={option.value}>
 									{option.label}
