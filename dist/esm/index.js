@@ -420,6 +420,8 @@ var Select = forwardRef(function (props, ref) {
     var theme = props.theme, placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options, className = props.className, style = props.style, onChange = props.onChange;
     var _a = useState(), selectedOption = _a[0], setSelectedOption = _a[1];
     var _b = useState(false), showOptions = _b[0], setShowOptions = _b[1];
+    var wrapperRef = useRef(null);
+    useClickOutside(wrapperRef, function () { return setShowOptions(false); });
     var getOption = function (value) {
         return options.find(function (option) { return option.value === value; });
     };
@@ -437,7 +439,7 @@ var Select = forwardRef(function (props, ref) {
             onChange(option);
         }
     };
-    return (jsxs(SelectWrapperStyle, __assign({ className: className, style: style, theme: theme }, { children: [jsxs(SelectStyle, __assign({ rotate: showOptions, ref: ref, onClick: function () { return setShowOptions(!showOptions); } }, { children: [jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }), jsxs("svg", __assign({ xmlns: 'http://www.w3.org/2000/svg', height: '24px', viewBox: '0 0 24 24', width: '24px', fill: '#000000' }, { children: [jsx("path", { d: 'M0 0h24v24H0V0z', fill: 'none' }), jsx("path", { d: 'M7 10l5 5 5-5H7z' })] }))] })), jsx(OptionsWrapperStyle, __assign({ show: showOptions }, { children: jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }) }))] })));
+    return (jsxs(SelectWrapperStyle, __assign({ ref: wrapperRef, className: className, style: style, theme: theme }, { children: [jsxs(SelectStyle, __assign({ rotate: showOptions, ref: ref, onClick: function () { return setShowOptions(!showOptions); } }, { children: [jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }), jsxs("svg", __assign({ xmlns: 'http://www.w3.org/2000/svg', height: '24px', viewBox: '0 0 24 24', width: '24px', fill: '#000000' }, { children: [jsx("path", { d: 'M0 0h24v24H0V0z', fill: 'none' }), jsx("path", { d: 'M7 10l5 5 5-5H7z' })] }))] })), jsx(OptionsWrapperStyle, __assign({ show: showOptions }, { children: jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }) }))] })));
 });
 
 var Dropdown = forwardRef(function (props, ref) {

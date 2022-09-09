@@ -72,3 +72,8 @@ export const OptionStyle = styled.li`
 		background-color: rgba(144, 144, 144, 0.3);
 	}
 `;
+
+export const DisabledOptionStyle = styled(OptionStyle)`
+	cursor: default;
+	color: rgba(144, 144, 144, 0.3);
+`;
