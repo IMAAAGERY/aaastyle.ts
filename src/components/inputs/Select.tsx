@@ -7,10 +7,10 @@ export type OptionProps = {
 	label: string;
 };
 
-interface SelectProps extends ComponentPropsWithRef<'div'> {
+interface SelectProps extends Omit<ComponentPropsWithRef<'div'>, 'defaultValue'> {
 	theme?: Theme;
 	placeholder?: string;
-	defaultValue?: string | number;
+	defaultValue?: string | number | null;
 	options: OptionProps[];
 	onChange?: (value: any) => void;
 }
@@ -22,12 +22,12 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 
 	const [showOptions, setShowOptions] = useState<boolean>(false);
 
-	const getOption = (value: string | number) => {
+	const getOption = (value: string | number | null) => {
 		return options.find((option) => option.value === value);
 	};
 
 	useEffect(() => {
-		if (defaultValue) {
+		if (defaultValue || defaultValue === null) {
 			let option = getOption(defaultValue);
 			setSelectedOption(option);
 		}

@@ -227,10 +227,10 @@ declare type OptionProps = {
     value: string | number;
     label: string;
 };
-interface SelectProps extends ComponentPropsWithRef<'div'> {
+interface SelectProps extends Omit<ComponentPropsWithRef<'div'>, 'defaultValue'> {
     theme?: Theme;
     placeholder?: string;
-    defaultValue?: string | number;
+    defaultValue?: string | number | null;
     options: OptionProps[];
     onChange?: (value: any) => void;
 }

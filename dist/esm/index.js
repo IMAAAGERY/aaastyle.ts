@@ -424,7 +424,7 @@ var Select = forwardRef(function (props, ref) {
         return options.find(function (option) { return option.value === value; });
     };
     useEffect(function () {
-        if (defaultValue) {
+        if (defaultValue || defaultValue === null) {
             var option = getOption(defaultValue);
             setSelectedOption(option);
         }
