@@ -8,3 +8,4 @@ export declare const OptionsWrapperStyle: import("styled-components").StyledComp
 }, never>;
 export declare const OptionsListStyle: import("styled-components").StyledComponent<"ul", any, {}, never>;
 export declare const OptionStyle: import("styled-components").StyledComponent<"li", any, {}, never>;
+export declare const DisabledOptionStyle: import("styled-components").StyledComponent<"li", any, {}, never>;

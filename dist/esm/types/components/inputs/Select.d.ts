@@ -4,10 +4,10 @@ export declare type OptionProps = {
     value: string | number;
     label: string;
 };
-interface SelectProps extends Omit<ComponentPropsWithRef<'div'>, 'defaultValue'> {
+interface SelectProps extends ComponentPropsWithRef<'div'> {
     theme?: Theme;
     placeholder?: string;
-    defaultValue?: string | number | null;
+    defaultValue?: string | number;
     options: OptionProps[];
     onChange?: (value: any) => void;
 }
