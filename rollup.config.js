@@ -4,18 +4,27 @@ import dts from 'rollup-plugin-dts';
 import image from '@rollup/plugin-image';
 import svg from 'rollup-plugin-svg';
 import external from 'rollup-plugin-peer-deps-external';
+import commonjs from '@rollup/plugin-commonjs';
 
 const packageJson = require('./package.json');
 
 export default [
 	{
 		input: 'src/index.ts',
-		output: {
-			file: packageJson.module,
-			format: 'esm',
-			sourcemap: true,
-		},
-		plugins: [resolve(), image(), svg(), external(), typescript({ tsconfig: './tsconfig.json' })],
+		output: [
+			{
+				file: packageJson.main,
+				format: 'cjs',
+				sourcemap: true,
+				name: 'react-lib',
+			},
+			{
+				file: packageJson.module,
+				format: 'esm',
+				sourcemap: true,
+			},
+		],
+		plugins: [resolve(), commonjs(), image(), svg(), external(), typescript({ tsconfig: './tsconfig.json' })],
 		external: ['react', 'react-dom', 'styled-components'],
 	},
 	{
