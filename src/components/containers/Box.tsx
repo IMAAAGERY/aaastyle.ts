@@ -11,7 +11,7 @@ const Box = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
 	const { children, style, className, theme, vertical } = props;
 
 	return (
-		<BoxStyle ref={ref} theme={theme} style={style} className={className} vertical={vertical}>
+		<BoxStyle ref={ref} {...props} vertical={vertical}>
 			{children}
 		</BoxStyle>
 	);

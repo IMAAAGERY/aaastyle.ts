@@ -7,10 +7,10 @@ export interface SidebarItemProps extends ComponentPropsWithRef<'div'> {
 }
 
 const SidebarItem = forwardRef<HTMLDivElement, SidebarItemProps>((props, ref) => {
-	const { children, style, className, theme } = props;
+	const { children } = props;
 
 	return (
-		<SidebarItemStyle ref={ref} theme={theme} style={style} className={className}>
+		<SidebarItemStyle ref={ref} {...props}>
 			{children}
 		</SidebarItemStyle>
 	);

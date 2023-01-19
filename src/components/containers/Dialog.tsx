@@ -12,14 +12,14 @@ export interface DialogProps extends ComponentPropsWithRef<'div'> {
 }
 
 const Dialog = forwardRef<HTMLDivElement, DialogProps>((props, ref) => {
-	const { children, style, theme, className, closeOnClickOutside, position, onClose } = props;
+	const { children, closeOnClickOutside, position, onClose } = props;
 	const dialogRef = useRef<HTMLDivElement>(null);
 
 	useClickOutside(dialogRef, onClose);
 
 	return (
 		<DialogBackgroundStyle position={position} ref={ref}>
-			<DialogStyle ref={closeOnClickOutside ? dialogRef : undefined} theme={theme} style={style} className={className}>
+			<DialogStyle ref={closeOnClickOutside ? dialogRef : undefined} {...props}>
 				{children}
 			</DialogStyle>
 		</DialogBackgroundStyle>

@@ -13,10 +13,10 @@ export interface IconProps extends ComponentPropsWithRef<'div'> {
 }
 
 const Icon = forwardRef<HTMLDivElement, IconProps>((props, ref) => {
-	const { children, style, theme, className, shape, size } = props;
+	const { children, shape, size } = props;
 
 	return (
-		<IconStyle ref={ref} style={style} theme={theme} className={className} shape={shape || 'circle'} size={size || 'medium'}>
+		<IconStyle ref={ref} {...props} shape={shape || 'circle'} size={size || 'medium'}>
 			{children}
 		</IconStyle>
 	);

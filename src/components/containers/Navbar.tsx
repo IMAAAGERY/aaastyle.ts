@@ -7,10 +7,10 @@ export interface NavbarProps extends ComponentPropsWithRef<'nav'> {
 }
 
 const Navbar = forwardRef<HTMLDivElement, NavbarProps>((props, ref) => {
-	const { children, style, className, theme } = props;
+	const { children } = props;
 
 	return (
-		<NavbarStyle theme={theme} ref={ref} style={style} className={className}>
+		<NavbarStyle {...props} ref={ref}>
 			{children}
 		</NavbarStyle>
 	);

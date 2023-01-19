@@ -13,7 +13,7 @@ interface ToastProps extends ComponentPropsWithRef<'div'> {
 }
 
 const Toast = forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
-	const { children, className, style, position, duration, onClose, closable, theme } = props;
+	const { children, position, duration, onClose, closable } = props;
 
 	const [show, setShow] = useState<boolean>(false);
 
@@ -41,7 +41,7 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
 	};
 
 	return (
-		<ToastStyle  closable={closable || false} onClick={handleClick} ref={ref} className={className} style={style} theme={theme} position={position || 'top-center'} show={show}>
+		<ToastStyle  closable={closable || false} onClick={handleClick} ref={ref} {...props} position={position || 'top-center'} show={show}>
 			{children}
 		</ToastStyle>
 	);

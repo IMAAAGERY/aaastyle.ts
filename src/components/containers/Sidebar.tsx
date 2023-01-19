@@ -8,10 +8,10 @@ interface SidebarProps extends ComponentPropsWithRef<'div'> {
 }
 
 const Sidebar = forwardRef<HTMLDivElement, SidebarProps>((props, ref) => {
-	const { children, style, className, theme, collapsed } = props;
+	const { children, collapsed } = props;
 
 	return (
-		<SidebarStyle theme={theme} ref={ref} style={style} className={className} collapsed={collapsed}>
+		<SidebarStyle {...props} ref={ref} collapsed={collapsed}>
 			{children}
 		</SidebarStyle>
 	);

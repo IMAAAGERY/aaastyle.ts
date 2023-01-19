@@ -57,13 +57,13 @@ var NavbarItemStyle = styled.div(templateObject_11$2 || (templateObject_11$2 = _
 var templateObject_1$4, templateObject_2$4, templateObject_3$4, templateObject_4$4, templateObject_5$4, templateObject_6$3, templateObject_7$3, templateObject_8$3, templateObject_9$2, templateObject_10$2, templateObject_11$2;
 
 var Box = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, vertical = props.vertical;
-    return (jsx(BoxStyle, __assign({ ref: ref, theme: theme, style: style, className: className, vertical: vertical }, { children: children })));
+    var children = props.children; props.style; props.className; props.theme; var vertical = props.vertical;
+    return (jsx(BoxStyle, __assign({ ref: ref }, props, { vertical: vertical }, { children: children })));
 });
 
 var Container = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, vertical = props.vertical;
-    return (jsx(ContainerStyle, __assign({ theme: theme, ref: ref, style: style, className: className, vertical: vertical }, { children: children })));
+    var children = props.children;
+    return (jsx(ContainerStyle, __assign({}, props, { ref: ref }, { children: children })));
 });
 
 var useClickOutside = function (ref, callback) {
@@ -102,10 +102,10 @@ var useClickOutside = function (ref, callback) {
 };
 
 var Dialog = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, theme = props.theme, className = props.className, closeOnClickOutside = props.closeOnClickOutside, position = props.position, onClose = props.onClose;
+    var children = props.children, closeOnClickOutside = props.closeOnClickOutside, position = props.position, onClose = props.onClose;
     var dialogRef = useRef(null);
     useClickOutside(dialogRef, onClose);
-    return (jsx(DialogBackgroundStyle, __assign({ position: position, ref: ref }, { children: jsx(DialogStyle, __assign({ ref: closeOnClickOutside ? dialogRef : undefined, theme: theme, style: style, className: className }, { children: children })) })));
+    return (jsx(DialogBackgroundStyle, __assign({ position: position, ref: ref }, { children: jsx(DialogStyle, __assign({ ref: closeOnClickOutside ? dialogRef : undefined }, props, { children: children })) })));
 });
 
 var ListStyle = styled.ul(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"], ["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"])), function (props) { return props.theme.list.color; });
@@ -121,24 +121,24 @@ var List = forwardRef(function (props, ref) {
 });
 
 var ListItem = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, onClick = props.onClick;
-    return (jsx(ListItemStyle, __assign({ onClick: onClick, ref: ref, style: style, theme: theme, className: className }, { children: children })));
+    var children = props.children; props.style; props.className; props.theme; var onClick = props.onClick;
+    return (jsx(ListItemStyle, __assign({ onClick: onClick, ref: ref }, props, { children: children })));
 });
 
 var Sidebar = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, collapsed = props.collapsed;
-    return (jsx(SidebarStyle, __assign({ theme: theme, ref: ref, style: style, className: className, collapsed: collapsed }, { children: children })));
+    var children = props.children, collapsed = props.collapsed;
+    return (jsx(SidebarStyle, __assign({}, props, { ref: ref, collapsed: collapsed }, { children: children })));
 });
 
 var SidebarItem = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsx(SidebarItemStyle, __assign({ ref: ref, theme: theme, style: style, className: className }, { children: children })));
+    var children = props.children;
+    return (jsx(SidebarItemStyle, __assign({ ref: ref }, props, { children: children })));
 });
 
 var MasterDetail = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, header = props.header, footer = props.footer, collapsed = props.collapsed;
+    var children = props.children, header = props.header, footer = props.footer, collapsed = props.collapsed;
     var _a = useState(), currentContent = _a[0], setCurrentContent = _a[1];
-    return (jsxs(MasterDetailStyle, __assign({ ref: ref, style: style, theme: theme, className: className }, { children: [jsxs(Sidebar, __assign({ collapsed: collapsed }, { children: [header && jsx(SidebarItem, { children: header }), children === null || children === void 0 ? void 0 : children.map(function (group, index) {
+    return (jsxs(MasterDetailStyle, __assign({ ref: ref }, props, { children: [jsxs(Sidebar, __assign({ collapsed: collapsed }, { children: [header && jsx(SidebarItem, { children: header }), children === null || children === void 0 ? void 0 : children.map(function (group, index) {
                         var _a;
                         return (jsxs(SidebarItem, { children: [jsx(MasterDetailGroupTitleStyle, { children: collapsed ? group.collapsedTitle : group.title }), jsx(List, { children: (_a = group.items) === null || _a === void 0 ? void 0 : _a.map(function (item, index) { return (jsx(ListItem, __assign({ onClick: function () { return setCurrentContent(item.content); } }, { children: collapsed ? item.collapsedTitle : item.title }), index)); }) })] }, index));
                     }), footer && jsx(SidebarItem, __assign({ style: { justifySelf: 'flex-end' } }, { children: footer }))] })), jsx(Container, __assign({ vertical: true, style: { backgroundColor: '#f2f2f7', borderLeft: '1px solid rgba(144, 144, 144, 0.3)', flexGrow: 1 } }, { children: currentContent }))] })));
@@ -261,13 +261,13 @@ var View = forwardRef(function (props, ref) {
 });
 
 var NavbarItem = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsx(NavbarItemStyle, __assign({ ref: ref, theme: theme, style: style, className: className }, { children: children })));
+    var children = props.children; props.style; props.className; props.theme;
+    return (jsx(NavbarItemStyle, __assign({ ref: ref }, props, { children: children })));
 });
 
 var Navbar = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsx(NavbarStyle, __assign({ theme: theme, ref: ref, style: style, className: className }, { children: children })));
+    var children = props.children;
+    return (jsx(NavbarStyle, __assign({}, props, { ref: ref }, { children: children })));
 });
 
 var ButtonStyle = styled.button(templateObject_7$2 || (templateObject_7$2 = __makeTemplateObject(["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\tmin-width: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"], ["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\tmin-width: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"])), function (props) { return "".concat(props.theme.button.color[props.color]); }, function (props) {
@@ -481,8 +481,8 @@ var LabelStyle = styled.div(templateObject_13 || (templateObject_13 = __makeTemp
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13;
 
 var Icon = forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, theme = props.theme, className = props.className, shape = props.shape, size = props.size;
-    return (jsx(IconStyle, __assign({ ref: ref, style: style, theme: theme, className: className, shape: shape || 'circle', size: size || 'medium' }, { children: children })));
+    var children = props.children, shape = props.shape, size = props.size;
+    return (jsx(IconStyle, __assign({ ref: ref }, props, { shape: shape || 'circle', size: size || 'medium' }, { children: children })));
 });
 
 var Spacer = function (props) {
@@ -495,7 +495,7 @@ var Label = forwardRef(function (props, ref) {
 });
 
 var Toast = forwardRef(function (props, ref) {
-    var children = props.children, className = props.className, style = props.style, position = props.position, duration = props.duration, onClose = props.onClose, closable = props.closable, theme = props.theme;
+    var children = props.children, position = props.position, duration = props.duration, onClose = props.onClose, closable = props.closable;
     var _a = useState(false), show = _a[0], setShow = _a[1];
     useEffect(function () {
         if (duration) {
@@ -516,7 +516,7 @@ var Toast = forwardRef(function (props, ref) {
         closable && setShow(false);
         onClose && onClose(e);
     };
-    return (jsx(ToastStyle, __assign({ closable: closable || false, onClick: handleClick, ref: ref, className: className, style: style, theme: theme, position: position || 'top-center', show: show }, { children: children })));
+    return (jsx(ToastStyle, __assign({ closable: closable || false, onClick: handleClick, ref: ref }, props, { position: position || 'top-center', show: show }, { children: children })));
 });
 
 export { Box, Button, Container, Dialog, Dropdown, DropdownItem, FAB, Icon, Input, Label, List, ListItem, MasterDetail, Navbar, NavbarItem, Select, Sidebar, SidebarItem, Spacer, Toast, ToggleButton, ToggleButtonGroup, ToggleSwitch, View, useClickOutside };

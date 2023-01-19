@@ -65,13 +65,13 @@ var NavbarItemStyle = styled__default["default"].div(templateObject_11$2 || (tem
 var templateObject_1$4, templateObject_2$4, templateObject_3$4, templateObject_4$4, templateObject_5$4, templateObject_6$3, templateObject_7$3, templateObject_8$3, templateObject_9$2, templateObject_10$2, templateObject_11$2;
 
 var Box = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, vertical = props.vertical;
-    return (jsxRuntime.jsx(BoxStyle, __assign({ ref: ref, theme: theme, style: style, className: className, vertical: vertical }, { children: children })));
+    var children = props.children; props.style; props.className; props.theme; var vertical = props.vertical;
+    return (jsxRuntime.jsx(BoxStyle, __assign({ ref: ref }, props, { vertical: vertical }, { children: children })));
 });
 
 var Container = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, vertical = props.vertical;
-    return (jsxRuntime.jsx(ContainerStyle, __assign({ theme: theme, ref: ref, style: style, className: className, vertical: vertical }, { children: children })));
+    var children = props.children;
+    return (jsxRuntime.jsx(ContainerStyle, __assign({}, props, { ref: ref }, { children: children })));
 });
 
 var useClickOutside = function (ref, callback) {
@@ -110,10 +110,10 @@ var useClickOutside = function (ref, callback) {
 };
 
 var Dialog = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, theme = props.theme, className = props.className, closeOnClickOutside = props.closeOnClickOutside, position = props.position, onClose = props.onClose;
+    var children = props.children, closeOnClickOutside = props.closeOnClickOutside, position = props.position, onClose = props.onClose;
     var dialogRef = react.useRef(null);
     useClickOutside(dialogRef, onClose);
-    return (jsxRuntime.jsx(DialogBackgroundStyle, __assign({ position: position, ref: ref }, { children: jsxRuntime.jsx(DialogStyle, __assign({ ref: closeOnClickOutside ? dialogRef : undefined, theme: theme, style: style, className: className }, { children: children })) })));
+    return (jsxRuntime.jsx(DialogBackgroundStyle, __assign({ position: position, ref: ref }, { children: jsxRuntime.jsx(DialogStyle, __assign({ ref: closeOnClickOutside ? dialogRef : undefined }, props, { children: children })) })));
 });
 
 var ListStyle = styled__default["default"].ul(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"], ["\n\tbox-sizing: border-box;\n\tposition: relative;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: flex-start;\n\tlist-style: none;\n\tcolor: ", ";\n\tborder-radius: 12px;\n\tpadding: 0;\n\tmargin: 12px;\n\twidth: 100%;\n\tbox-sizing: border-box;\n\ttransition: 0.3s;\n"])), function (props) { return props.theme.list.color; });
@@ -129,24 +129,24 @@ var List = react.forwardRef(function (props, ref) {
 });
 
 var ListItem = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, onClick = props.onClick;
-    return (jsxRuntime.jsx(ListItemStyle, __assign({ onClick: onClick, ref: ref, style: style, theme: theme, className: className }, { children: children })));
+    var children = props.children; props.style; props.className; props.theme; var onClick = props.onClick;
+    return (jsxRuntime.jsx(ListItemStyle, __assign({ onClick: onClick, ref: ref }, props, { children: children })));
 });
 
 var Sidebar = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, collapsed = props.collapsed;
-    return (jsxRuntime.jsx(SidebarStyle, __assign({ theme: theme, ref: ref, style: style, className: className, collapsed: collapsed }, { children: children })));
+    var children = props.children, collapsed = props.collapsed;
+    return (jsxRuntime.jsx(SidebarStyle, __assign({}, props, { ref: ref, collapsed: collapsed }, { children: children })));
 });
 
 var SidebarItem = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsxRuntime.jsx(SidebarItemStyle, __assign({ ref: ref, theme: theme, style: style, className: className }, { children: children })));
+    var children = props.children;
+    return (jsxRuntime.jsx(SidebarItemStyle, __assign({ ref: ref }, props, { children: children })));
 });
 
 var MasterDetail = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme, header = props.header, footer = props.footer, collapsed = props.collapsed;
+    var children = props.children, header = props.header, footer = props.footer, collapsed = props.collapsed;
     var _a = react.useState(), currentContent = _a[0], setCurrentContent = _a[1];
-    return (jsxRuntime.jsxs(MasterDetailStyle, __assign({ ref: ref, style: style, theme: theme, className: className }, { children: [jsxRuntime.jsxs(Sidebar, __assign({ collapsed: collapsed }, { children: [header && jsxRuntime.jsx(SidebarItem, { children: header }), children === null || children === void 0 ? void 0 : children.map(function (group, index) {
+    return (jsxRuntime.jsxs(MasterDetailStyle, __assign({ ref: ref }, props, { children: [jsxRuntime.jsxs(Sidebar, __assign({ collapsed: collapsed }, { children: [header && jsxRuntime.jsx(SidebarItem, { children: header }), children === null || children === void 0 ? void 0 : children.map(function (group, index) {
                         var _a;
                         return (jsxRuntime.jsxs(SidebarItem, { children: [jsxRuntime.jsx(MasterDetailGroupTitleStyle, { children: collapsed ? group.collapsedTitle : group.title }), jsxRuntime.jsx(List, { children: (_a = group.items) === null || _a === void 0 ? void 0 : _a.map(function (item, index) { return (jsxRuntime.jsx(ListItem, __assign({ onClick: function () { return setCurrentContent(item.content); } }, { children: collapsed ? item.collapsedTitle : item.title }), index)); }) })] }, index));
                     }), footer && jsxRuntime.jsx(SidebarItem, __assign({ style: { justifySelf: 'flex-end' } }, { children: footer }))] })), jsxRuntime.jsx(Container, __assign({ vertical: true, style: { backgroundColor: '#f2f2f7', borderLeft: '1px solid rgba(144, 144, 144, 0.3)', flexGrow: 1 } }, { children: currentContent }))] })));
@@ -269,13 +269,13 @@ var View = react.forwardRef(function (props, ref) {
 });
 
 var NavbarItem = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsxRuntime.jsx(NavbarItemStyle, __assign({ ref: ref, theme: theme, style: style, className: className }, { children: children })));
+    var children = props.children; props.style; props.className; props.theme;
+    return (jsxRuntime.jsx(NavbarItemStyle, __assign({ ref: ref }, props, { children: children })));
 });
 
 var Navbar = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, className = props.className, theme = props.theme;
-    return (jsxRuntime.jsx(NavbarStyle, __assign({ theme: theme, ref: ref, style: style, className: className }, { children: children })));
+    var children = props.children;
+    return (jsxRuntime.jsx(NavbarStyle, __assign({}, props, { ref: ref }, { children: children })));
 });
 
 var ButtonStyle = styled__default["default"].button(templateObject_7$2 || (templateObject_7$2 = __makeTemplateObject(["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\tmin-width: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"], ["\n\tposition: relative;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\theight: 40px;\n\tmin-width: 120px;\n\tmargin: 8px;\n\tborder-radius: 4px;\n\tcolor: ", ";\n\tcursor: pointer;\n\toverflow: hidden;\n\tfont-weight: bold;\n\tpadding: 12px 24px;\n\n\t&:hover {\n\t\topacity: 0.8;\n\t}\n\n\t", "\n\n\t", "\n"])), function (props) { return "".concat(props.theme.button.color[props.color]); }, function (props) {
@@ -489,8 +489,8 @@ var LabelStyle = styled__default["default"].div(templateObject_13 || (templateOb
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13;
 
 var Icon = react.forwardRef(function (props, ref) {
-    var children = props.children, style = props.style, theme = props.theme, className = props.className, shape = props.shape, size = props.size;
-    return (jsxRuntime.jsx(IconStyle, __assign({ ref: ref, style: style, theme: theme, className: className, shape: shape || 'circle', size: size || 'medium' }, { children: children })));
+    var children = props.children, shape = props.shape, size = props.size;
+    return (jsxRuntime.jsx(IconStyle, __assign({ ref: ref }, props, { shape: shape || 'circle', size: size || 'medium' }, { children: children })));
 });
 
 var Spacer = function (props) {
@@ -503,7 +503,7 @@ var Label = react.forwardRef(function (props, ref) {
 });
 
 var Toast = react.forwardRef(function (props, ref) {
-    var children = props.children, className = props.className, style = props.style, position = props.position, duration = props.duration, onClose = props.onClose, closable = props.closable, theme = props.theme;
+    var children = props.children, position = props.position, duration = props.duration, onClose = props.onClose, closable = props.closable;
     var _a = react.useState(false), show = _a[0], setShow = _a[1];
     react.useEffect(function () {
         if (duration) {
@@ -524,7 +524,7 @@ var Toast = react.forwardRef(function (props, ref) {
         closable && setShow(false);
         onClose && onClose(e);
     };
-    return (jsxRuntime.jsx(ToastStyle, __assign({ closable: closable || false, onClick: handleClick, ref: ref, className: className, style: style, theme: theme, position: position || 'top-center', show: show }, { children: children })));
+    return (jsxRuntime.jsx(ToastStyle, __assign({ closable: closable || false, onClick: handleClick, ref: ref }, props, { position: position || 'top-center', show: show }, { children: children })));
 });
 
 exports.Box = Box;

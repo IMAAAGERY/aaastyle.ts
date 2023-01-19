@@ -10,7 +10,7 @@ const NavbarItem = forwardRef<HTMLDivElement, NavbarItemProps>((props, ref) => {
 	const { children, style, className, theme } = props;
 
 	return (
-		<NavbarItemStyle ref={ref} theme={theme} style={style} className={className}>
+		<NavbarItemStyle ref={ref} {...props}>
 			{children}
 		</NavbarItemStyle>
 	);

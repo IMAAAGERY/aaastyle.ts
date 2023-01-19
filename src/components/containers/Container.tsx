@@ -8,10 +8,10 @@ interface ContainerProps extends ComponentPropsWithRef<'div'> {
 }
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => {
-	const { children, style, className, theme, vertical } = props;
+	const { children } = props;
 
 	return (
-		<ContainerStyle theme={theme} ref={ref} style={style} className={className} vertical={vertical}>
+		<ContainerStyle {...props} ref={ref}>
 			{children}
 		</ContainerStyle>
 	);

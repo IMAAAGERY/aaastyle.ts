@@ -28,11 +28,11 @@ interface MasterDetailProps extends Omit<ComponentPropsWithRef<'div'>, 'children
 }
 
 const MasterDetail = forwardRef<HTMLDivElement, MasterDetailProps>((props, ref) => {
-	const { children, style, className, theme, header, footer, collapsed } = props;
+	const { children, header, footer, collapsed } = props;
 	const [currentContent, setCurrentContent] = useState<ReactNode>();
 
 	return (
-		<MasterDetailStyle ref={ref} style={style} theme={theme} className={className}>
+		<MasterDetailStyle ref={ref} {...props}>
 			<Sidebar collapsed={collapsed}>
 				{header && <SidebarItem>{header}</SidebarItem>}
 				{children?.map((group, index) => (

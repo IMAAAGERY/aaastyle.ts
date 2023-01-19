@@ -11,7 +11,7 @@ const ListItem = forwardRef<HTMLLIElement, ListItemProps>((props, ref) => {
 	const { children, style, className, theme, onClick } = props;
 
 	return (
-		<ListItemStyle onClick={onClick} ref={ref} style={style} theme={theme} className={className}>
+		<ListItemStyle onClick={onClick} ref={ref} {...props}>
 			{children}
 		</ListItemStyle>
 	);
