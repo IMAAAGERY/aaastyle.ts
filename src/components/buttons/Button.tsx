@@ -17,7 +17,7 @@ export type ButtonShape = 'rounded' | 'sharp' | 'pill';
 export type ButtonColor = 'primary' | 'secondary' | 'info' | 'warning' | 'danger' | 'success';
 
 const Button= forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-	const { children, className, style, theme, variant, color, shape, disabled, onClick } = props;
+	const { children, variant, color, shape, onClick, ...rest } = props;
 
 	const [coords, setCoords] = useState({ x: -1, y: -1 });
 	const [isRippling, setIsRippling] = useState(false);
@@ -41,7 +41,7 @@ const Button= forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 	};
 
 	return (
-		<ButtonStyle ref={ref} disabled={disabled} theme={theme} className={className} style={style} onClick={handleClick} variant={variant || 'contained'} color={color || 'primary'} shape={shape || 'rounded'}>
+		<ButtonStyle ref={ref} {...rest} onClick={handleClick} variant={variant || 'contained'} color={color || 'primary'} shape={shape || 'rounded'}>
 			<ButtonContentStyle>{children}</ButtonContentStyle>
 			{isRippling && <ButtonRippleStyle left={coords.x} top={coords.y} />}
 		</ButtonStyle>

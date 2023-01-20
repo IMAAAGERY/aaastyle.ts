@@ -36,6 +36,18 @@ var __assign = function() {
     return __assign.apply(this, arguments);
 };
 
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
 function __spreadArray(to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -308,7 +320,7 @@ var ToggleSwitch = react.forwardRef(function (props, ref) {
 });
 
 var Button = react.forwardRef(function (props, ref) {
-    var children = props.children, className = props.className, style = props.style, theme = props.theme, variant = props.variant, color = props.color, shape = props.shape, disabled = props.disabled, onClick = props.onClick;
+    var children = props.children, variant = props.variant, color = props.color, shape = props.shape, onClick = props.onClick, rest = __rest(props, ["children", "variant", "color", "shape", "onClick"]);
     var _a = react.useState({ x: -1, y: -1 }), coords = _a[0], setCoords = _a[1];
     var _b = react.useState(false), isRippling = _b[0], setIsRippling = _b[1];
     react.useEffect(function () {
@@ -329,7 +341,7 @@ var Button = react.forwardRef(function (props, ref) {
         setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
         onClick && onClick(e);
     };
-    return (jsxRuntime.jsxs(ButtonStyle, __assign({ ref: ref, disabled: disabled, theme: theme, className: className, style: style, onClick: handleClick, variant: variant || 'contained', color: color || 'primary', shape: shape || 'rounded' }, { children: [jsxRuntime.jsx(ButtonContentStyle, { children: children }), isRippling && jsxRuntime.jsx(ButtonRippleStyle, { left: coords.x, top: coords.y })] })));
+    return (jsxRuntime.jsxs(ButtonStyle, __assign({ ref: ref }, rest, { onClick: handleClick, variant: variant || 'contained', color: color || 'primary', shape: shape || 'rounded' }, { children: [jsxRuntime.jsx(ButtonContentStyle, { children: children }), isRippling && jsxRuntime.jsx(ButtonRippleStyle, { left: coords.x, top: coords.y })] })));
 });
 
 var FAB = react.forwardRef(function (props, ref) {
