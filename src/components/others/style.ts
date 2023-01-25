@@ -14,13 +14,12 @@ export const ToastStyle = styled.div<{ position: ToastPosition; show: boolean; c
 	justify-content: center;
 	align-items: center;
 	z-index: 1000;
-	width: 120px;
-	height: 40px;
 	border-radius: 200px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	background-color: ${(props) => props.theme.toast.backgroundColor};
 	cursor: ${(props) => (props.closable ? 'pointer' : 'default')};
 	transition: 0.5s;
+	padding: 8px 24px;
 
 	${(props) =>
 		(props.position === 'top-left' &&
