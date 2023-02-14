@@ -17,7 +17,7 @@ interface SelectProps extends ComponentPropsWithRef<'div'> {
 }
 
 const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
-	const { theme, placeholder, defaultValue, options, className, style, onChange } = props;
+	const { placeholder, defaultValue, options, onChange } = props;
 
 	const [selectedOption, setSelectedOption] = useState<OptionProps | undefined>();
 
@@ -46,8 +46,8 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 	};
 
 	return (
-		<SelectWrapperStyle ref={wrapperRef} className={className} style={style} theme={theme}>
-			<SelectStyle rotate={showOptions} ref={ref} onClick={() => setShowOptions(!showOptions)}>
+		<SelectWrapperStyle onBlur={() => setShowOptions(false)} ref={wrapperRef} {...props}>
+			<SelectStyle tabIndex={0} rotate={showOptions} ref={ref} onFocus={() => setShowOptions(true)}>
 				<span>{(selectedOption && selectedOption.label) || placeholder}</span>
 				<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#000000'>
 					<path d='M0 0h24v24H0V0z' fill='none' />

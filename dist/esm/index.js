@@ -425,12 +425,12 @@ styled(OptionStyle)(templateObject_8$1 || (templateObject_8$1 = __makeTemplateOb
 var templateObject_1$1, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5$1, templateObject_6$1, templateObject_7$1, templateObject_8$1;
 
 var Input = forwardRef(function (props, ref) {
-    var style = props.style, className = props.className, theme = props.theme, value = props.value, defaultValue = props.defaultValue, defaultChecked = props.defaultChecked, type = props.type, placeholder = props.placeholder, onChange = props.onChange, onFocus = props.onFocus;
-    return (jsx(InputStyle, { onChange: onChange, onFocus: onFocus, ref: ref, value: value, defaultValue: defaultValue, defaultChecked: defaultChecked, placeholder: placeholder, type: type, theme: theme, className: className, style: style }));
+    var value = props.value, defaultValue = props.defaultValue, defaultChecked = props.defaultChecked, type = props.type, placeholder = props.placeholder, onChange = props.onChange, onFocus = props.onFocus;
+    return (jsx(InputStyle, __assign({ onChange: onChange, onFocus: onFocus, ref: ref, value: value, defaultValue: defaultValue, defaultChecked: defaultChecked, placeholder: placeholder, type: type }, props)));
 });
 
 var Select = forwardRef(function (props, ref) {
-    var theme = props.theme, placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options, className = props.className, style = props.style, onChange = props.onChange;
+    var placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options, onChange = props.onChange;
     var _a = useState(), selectedOption = _a[0], setSelectedOption = _a[1];
     var _b = useState(false), showOptions = _b[0], setShowOptions = _b[1];
     var wrapperRef = useRef(null);
@@ -452,7 +452,7 @@ var Select = forwardRef(function (props, ref) {
             onChange(option);
         }
     };
-    return (jsxs(SelectWrapperStyle, __assign({ ref: wrapperRef, className: className, style: style, theme: theme }, { children: [jsxs(SelectStyle, __assign({ rotate: showOptions, ref: ref, onClick: function () { return setShowOptions(!showOptions); } }, { children: [jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }), jsxs("svg", __assign({ xmlns: 'http://www.w3.org/2000/svg', height: '24px', viewBox: '0 0 24 24', width: '24px', fill: '#000000' }, { children: [jsx("path", { d: 'M0 0h24v24H0V0z', fill: 'none' }), jsx("path", { d: 'M7 10l5 5 5-5H7z' })] }))] })), jsx(OptionsWrapperStyle, __assign({ show: showOptions }, { children: jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }) }))] })));
+    return (jsxs(SelectWrapperStyle, __assign({ onBlur: function () { return setShowOptions(false); }, ref: wrapperRef }, props, { children: [jsxs(SelectStyle, __assign({ tabIndex: 0, rotate: showOptions, ref: ref, onFocus: function () { return setShowOptions(true); } }, { children: [jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }), jsxs("svg", __assign({ xmlns: 'http://www.w3.org/2000/svg', height: '24px', viewBox: '0 0 24 24', width: '24px', fill: '#000000' }, { children: [jsx("path", { d: 'M0 0h24v24H0V0z', fill: 'none' }), jsx("path", { d: 'M7 10l5 5 5-5H7z' })] }))] })), jsx(OptionsWrapperStyle, __assign({ show: showOptions }, { children: jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }) }))] })));
 });
 
 var Dropdown = forwardRef(function (props, ref) {

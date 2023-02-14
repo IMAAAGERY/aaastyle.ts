@@ -433,12 +433,12 @@ styled__default["default"](OptionStyle)(templateObject_8$1 || (templateObject_8$
 var templateObject_1$1, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5$1, templateObject_6$1, templateObject_7$1, templateObject_8$1;
 
 var Input = react.forwardRef(function (props, ref) {
-    var style = props.style, className = props.className, theme = props.theme, value = props.value, defaultValue = props.defaultValue, defaultChecked = props.defaultChecked, type = props.type, placeholder = props.placeholder, onChange = props.onChange, onFocus = props.onFocus;
-    return (jsxRuntime.jsx(InputStyle, { onChange: onChange, onFocus: onFocus, ref: ref, value: value, defaultValue: defaultValue, defaultChecked: defaultChecked, placeholder: placeholder, type: type, theme: theme, className: className, style: style }));
+    var value = props.value, defaultValue = props.defaultValue, defaultChecked = props.defaultChecked, type = props.type, placeholder = props.placeholder, onChange = props.onChange, onFocus = props.onFocus;
+    return (jsxRuntime.jsx(InputStyle, __assign({ onChange: onChange, onFocus: onFocus, ref: ref, value: value, defaultValue: defaultValue, defaultChecked: defaultChecked, placeholder: placeholder, type: type }, props)));
 });
 
 var Select = react.forwardRef(function (props, ref) {
-    var theme = props.theme, placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options, className = props.className, style = props.style, onChange = props.onChange;
+    var placeholder = props.placeholder, defaultValue = props.defaultValue, options = props.options, onChange = props.onChange;
     var _a = react.useState(), selectedOption = _a[0], setSelectedOption = _a[1];
     var _b = react.useState(false), showOptions = _b[0], setShowOptions = _b[1];
     var wrapperRef = react.useRef(null);
@@ -460,7 +460,7 @@ var Select = react.forwardRef(function (props, ref) {
             onChange(option);
         }
     };
-    return (jsxRuntime.jsxs(SelectWrapperStyle, __assign({ ref: wrapperRef, className: className, style: style, theme: theme }, { children: [jsxRuntime.jsxs(SelectStyle, __assign({ rotate: showOptions, ref: ref, onClick: function () { return setShowOptions(!showOptions); } }, { children: [jsxRuntime.jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }), jsxRuntime.jsxs("svg", __assign({ xmlns: 'http://www.w3.org/2000/svg', height: '24px', viewBox: '0 0 24 24', width: '24px', fill: '#000000' }, { children: [jsxRuntime.jsx("path", { d: 'M0 0h24v24H0V0z', fill: 'none' }), jsxRuntime.jsx("path", { d: 'M7 10l5 5 5-5H7z' })] }))] })), jsxRuntime.jsx(OptionsWrapperStyle, __assign({ show: showOptions }, { children: jsxRuntime.jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsxRuntime.jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }) }))] })));
+    return (jsxRuntime.jsxs(SelectWrapperStyle, __assign({ onBlur: function () { return setShowOptions(false); }, ref: wrapperRef }, props, { children: [jsxRuntime.jsxs(SelectStyle, __assign({ tabIndex: 0, rotate: showOptions, ref: ref, onFocus: function () { return setShowOptions(true); } }, { children: [jsxRuntime.jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }), jsxRuntime.jsxs("svg", __assign({ xmlns: 'http://www.w3.org/2000/svg', height: '24px', viewBox: '0 0 24 24', width: '24px', fill: '#000000' }, { children: [jsxRuntime.jsx("path", { d: 'M0 0h24v24H0V0z', fill: 'none' }), jsxRuntime.jsx("path", { d: 'M7 10l5 5 5-5H7z' })] }))] })), jsxRuntime.jsx(OptionsWrapperStyle, __assign({ show: showOptions }, { children: jsxRuntime.jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsxRuntime.jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value }, { children: option.label }), index)); }) }) }))] })));
 });
 
 var Dropdown = react.forwardRef(function (props, ref) {
