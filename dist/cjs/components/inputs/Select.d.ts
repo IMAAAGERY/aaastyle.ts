@@ -3,6 +3,7 @@ import { Theme } from '../../common/types';
 export type OptionProps = {
     value: string | number;
     label: string;
+    disabled?: boolean;
 };
 interface SelectProps extends ComponentPropsWithRef<'div'> {
     theme?: Theme;

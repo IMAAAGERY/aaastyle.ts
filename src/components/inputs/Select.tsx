@@ -6,6 +6,7 @@ import { OptionsListStyle, OptionStyle, OptionsWrapperStyle, SelectStyle, Select
 export type OptionProps = {
 	value: string | number;
 	label: string;
+	disabled?: boolean;
 };
 
 interface SelectProps extends ComponentPropsWithRef<'div'> {
@@ -38,6 +39,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 	}, [defaultValue]);
 
 	const handleOptionClick = (option: OptionProps) => {
+		if(option.disabled) return;
 		setSelectedOption(option);
 		setShowOptions(false);
 		if (onChange) {
@@ -57,7 +59,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 			<OptionsWrapperStyle show={showOptions}>
 				<OptionsListStyle>
 					{options.map((option, index) => (
-						<OptionStyle onClick={() => handleOptionClick(option)} key={index} value={option.value}>
+						<OptionStyle onClick={() => handleOptionClick(option)} key={index} value={option.value} disabled={option.disabled}>
 							{option.label}
 						</OptionStyle>
 					))}

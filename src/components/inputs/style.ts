@@ -61,7 +61,7 @@ export const OptionsListStyle = styled.ul`
 	margin: 0;
 `;
 
-export const OptionStyle = styled.li`
+export const OptionStyle = styled.li<{disabled?: boolean}>`
 	cursor: pointer;
 	padding: 12px 24px 12px 24px;
 	margin: 8px 0px 8px 0px;
@@ -69,8 +69,13 @@ export const OptionStyle = styled.li`
 	height: 1em;
 
 	&:hover {
-		background-color: rgba(144, 144, 144, 0.3);
+		background-color: ${(props) => props.disabled? '#ffffff' : 'rgba(144, 144, 144, 0.3)'};
 	}
+
+	${(props) => props.disabled && css`
+		cursor: default;
+		color: rgba(0, 0, 0, 0.5);
+	`}
 `;
 
 export const DisabledOptionStyle = styled(OptionStyle)`
