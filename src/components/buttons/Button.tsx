@@ -16,7 +16,7 @@ export type ButtonShape = 'rounded' | 'sharp' | 'pill';
 
 export type ButtonColor = 'primary' | 'secondary' | 'info' | 'warning' | 'danger' | 'success';
 
-const Button= forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 	const { children, variant, color, shape, onClick, ...rest } = props;
 
 	const [coords, setCoords] = useState({ x: -1, y: -1 });
