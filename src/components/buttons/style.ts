@@ -12,7 +12,7 @@ export const ButtonStyle = styled.button<{ color: ButtonColor; variant: ButtonVa
 	min-width: 120px;
 	margin: 8px;
 	border-radius: 4px;
-	color: ${(props) => `${props.theme.button.color[props.color]}`};
+	color: ${(props) => `${props.theme.button?.color?.[props.color]}`};
 	cursor: pointer;
 	overflow: hidden;
 	font-weight: bold;
@@ -26,13 +26,13 @@ export const ButtonStyle = styled.button<{ color: ButtonColor; variant: ButtonVa
 		(props.variant === 'outlined' &&
 			css`
 				color: #000000;
-				border: 3px solid ${props.theme.button.borderColor[props.color]};
+				border: 3px solid ${props.theme.button?.borderColor?.[props.color]};
 				background: none;
 			`) ||
 		(props.variant === 'contained' &&
 			css`
 				border: none;
-				background: ${props.theme.button.backgroundColor[props.color]};
+				background: ${props.theme.button?.backgroundColor?.[props.color]};
 			`) ||
 		(props.variant === 'text' &&
 			css`
