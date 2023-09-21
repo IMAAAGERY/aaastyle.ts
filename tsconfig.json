@@ -20,6 +20,6 @@
 		"outDir": "dist",
 		"emitDeclarationOnly": true
 	},
-	"include": ["src"],
+	"include": ["src/**/*"],
 	"exclude": ["node_modules", "dist", "example", "rollup.config.js"]
 }

@@ -443,6 +443,8 @@ var Select = react.forwardRef(function (props, ref) {
     var _a = react.useState(), selectedOption = _a[0], setSelectedOption = _a[1];
     var _b = react.useState(false), showOptions = _b[0], setShowOptions = _b[1];
     var wrapperRef = react.useRef(null);
+    var _c = react.useState(false), optionsOpen = _c[0], setOptionsOpen = _c[1];
+    var timeoutRef = react.useRef();
     useClickOutside(wrapperRef, function () { setShowOptions(false); });
     var getOption = function (value) {
         return options.find(function (option) { return option.value === value; });
@@ -463,7 +465,29 @@ var Select = react.forwardRef(function (props, ref) {
             onChange(option);
         }
     };
-    return (jsxRuntime.jsxs(SelectWrapperStyle, __assign({ onBlur: function () { return setShowOptions(false); }, ref: wrapperRef }, props, { children: [jsxRuntime.jsxs(SelectStyle, __assign({ tabIndex: 0, rotate: showOptions, ref: ref, onFocus: function () { return setShowOptions(true); } }, { children: [jsxRuntime.jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }), jsxRuntime.jsxs("svg", __assign({ xmlns: 'http://www.w3.org/2000/svg', height: '24px', viewBox: '0 0 24 24', width: '24px', fill: '#000000' }, { children: [jsxRuntime.jsx("path", { d: 'M0 0h24v24H0V0z', fill: 'none' }), jsxRuntime.jsx("path", { d: 'M7 10l5 5 5-5H7z' })] }))] })), jsxRuntime.jsx(OptionsWrapperStyle, __assign({ show: showOptions }, { children: jsxRuntime.jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsxRuntime.jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value, disabled: option.disabled }, { children: option.label }), index)); }) }) }))] })));
+    var handleSelectFocus = function () {
+        setShowOptions(true);
+        timeoutRef.current = setTimeout(function () {
+            setOptionsOpen(true);
+        }, 300);
+    };
+    var handleSelectClick = function () {
+        if (optionsOpen) {
+            setShowOptions(false);
+            return;
+        }
+        setShowOptions(true);
+        timeoutRef.current = setTimeout(function () {
+            setOptionsOpen(true);
+        }, 300);
+    };
+    react.useEffect(function () {
+        if (!showOptions) {
+            timeoutRef.current && clearTimeout(timeoutRef.current);
+            setOptionsOpen(false);
+        }
+    }, [showOptions]);
+    return (jsxRuntime.jsxs(SelectWrapperStyle, __assign({ ref: wrapperRef }, props, { children: [jsxRuntime.jsxs(SelectStyle, __assign({ tabIndex: 0, rotate: showOptions, ref: ref, onFocus: handleSelectFocus, onClick: handleSelectClick }, { children: [jsxRuntime.jsx("span", { children: (selectedOption && selectedOption.label) || placeholder }), jsxRuntime.jsxs("svg", __assign({ xmlns: 'http://www.w3.org/2000/svg', height: '24px', viewBox: '0 0 24 24', width: '24px', fill: '#000000' }, { children: [jsxRuntime.jsx("path", { d: 'M0 0h24v24H0V0z', fill: 'none' }), jsxRuntime.jsx("path", { d: 'M7 10l5 5 5-5H7z' })] }))] })), jsxRuntime.jsx(OptionsWrapperStyle, __assign({ show: showOptions }, { children: jsxRuntime.jsx(OptionsListStyle, { children: options.map(function (option, index) { return (jsxRuntime.jsx(OptionStyle, __assign({ onClick: function () { return handleOptionClick(option); }, value: option.value, disabled: option.disabled }, { children: option.label }), index)); }) }) }))] })));
 });
 
 var Dropdown = react.forwardRef(function (props, ref) {

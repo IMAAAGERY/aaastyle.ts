@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef, forwardRef, useEffect, useRef, useState } from 'react';
 import { Theme } from '../../common/types';
+import { OptionStyle, OptionsListStyle, OptionsWrapperStyle, SelectStyle, SelectWrapperStyle } from './style';
 import { useClickOutside } from '../../utils';
-import { OptionsListStyle, OptionStyle, OptionsWrapperStyle, SelectStyle, SelectWrapperStyle } from './style';
 
 export type OptionProps = {
 	value: string | number;
@@ -19,11 +19,11 @@ interface SelectProps extends ComponentPropsWithRef<'div'> {
 
 const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 	const { placeholder, defaultValue, options, onChange } = props;
-
 	const [selectedOption, setSelectedOption] = useState<OptionProps | undefined>();
-
 	const [showOptions, setShowOptions] = useState<boolean>(false);
 	const wrapperRef = useRef<HTMLDivElement>(null);
+	const [optionsOpen, setOptionsOpen] = useState<boolean>(false);
+	const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 	useClickOutside(wrapperRef, () => {setShowOptions(false)});
 
 	const getOption = (value: string | number) => {
@@ -39,7 +39,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 	}, [defaultValue]);
 
 	const handleOptionClick = (option: OptionProps) => {
-		if(option.disabled) return;
+		if (option.disabled) return;
 		setSelectedOption(option);
 		setShowOptions(false);
 		if (onChange) {
@@ -47,9 +47,34 @@ const Select = forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
 		}
 	};
 
+	const handleSelectFocus = () => {
+		setShowOptions(true);
+		timeoutRef.current = setTimeout(() => {
+			setOptionsOpen(true);
+		}, 300);
+	}
+
+	const handleSelectClick = () => {
+		if(optionsOpen) {
+			setShowOptions(false);
+			return;
+		}
+		setShowOptions(true);
+		timeoutRef.current = setTimeout(() => {
+			setOptionsOpen(true);
+		}, 300);
+	};
+
+	useEffect(() => {
+		if(!showOptions) {
+			timeoutRef.current && clearTimeout(timeoutRef.current);
+			setOptionsOpen(false);
+		}
+	}, [showOptions]);
+
 	return (
-		<SelectWrapperStyle onBlur={() => setShowOptions(false)} ref={wrapperRef} {...props}>
-			<SelectStyle tabIndex={0} rotate={showOptions} ref={ref} onFocus={() => setShowOptions(true)}>
+		<SelectWrapperStyle ref={wrapperRef} {...props}>
+			<SelectStyle tabIndex={0} rotate={showOptions} ref={ref} onFocus={handleSelectFocus} onClick={handleSelectClick}>
 				<span>{(selectedOption && selectedOption.label) || placeholder}</span>
 				<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='#000000'>
 					<path d='M0 0h24v24H0V0z' fill='none' />
