@@ -66,7 +66,7 @@ export const OptionStyle = styled.li<{disabled?: boolean}>`
 	padding: 12px 24px 12px 24px;
 	margin: 8px 0px 8px 0px;
 	font-weight: 500;
-	height: 1em;
+	/* height: 1em; */
 
 	&:hover {
 		background-color: ${(props) => props.disabled? '#ffffff' : 'rgba(144, 144, 144, 0.3)'};
