@@ -26,42 +26,46 @@ PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
 var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
+  __assign = Object.assign || function __assign(t) {
+      for (var s, i = 1, n = arguments.length; i < n; i++) {
+          s = arguments[i];
+          for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+      return t;
+  };
+  return __assign.apply(this, arguments);
 };
 
 function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
+  var t = {};
+  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+      t[p] = s[p];
+  if (s != null && typeof Object.getOwnPropertySymbols === "function")
+      for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+          if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+              t[p[i]] = s[p[i]];
+      }
+  return t;
 }
 
 function __spreadArray(to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
+  if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+      if (ar || !(i in from)) {
+          if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+          ar[i] = from[i];
+      }
+  }
+  return to.concat(ar || Array.prototype.slice.call(from));
 }
 
 function __makeTemplateObject(cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
+  if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+  return cooked;
 }
+typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+  var e = new Error(message);
+  return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+};
 
 var ViewStyle = styled__default["default"].div(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n\tdisplay: flex;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tposition: fixed;\n\tz-index: 100;\n\ttop: 0;\n\tbottom: 0;\n\tleft: 0;\n\tright: 0;\n\tflex-direction: row;\n\tbackground-color: ", ";\n\tflex-wrap: wrap;\n\toverflow-x: hidden;\n\tbox-sizing: border-box;\n\t@media (max-width: 768px) {\n\t\tflex-direction: column;\n\t}\n"], ["\n\tdisplay: flex;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tposition: fixed;\n\tz-index: 100;\n\ttop: 0;\n\tbottom: 0;\n\tleft: 0;\n\tright: 0;\n\tflex-direction: row;\n\tbackground-color: ", ";\n\tflex-wrap: wrap;\n\toverflow-x: hidden;\n\tbox-sizing: border-box;\n\t@media (max-width: 768px) {\n\t\tflex-direction: column;\n\t}\n"])), function (props) { return props.theme.view.backgroundColor; });
 var ContainerStyle = styled__default["default"].div(templateObject_2$4 || (templateObject_2$4 = __makeTemplateObject(["\n\tposition: relative;\n\tflex-direction: ", ";\n\tdisplay: flex;\n\tbackground-color: ", ";\n\tpadding: 8px;\n\t@media (max-width: 768px) {\n\t\tflex-direction: column;\n\t}\n"], ["\n\tposition: relative;\n\tflex-direction: ", ";\n\tdisplay: flex;\n\tbackground-color: ", ";\n\tpadding: 8px;\n\t@media (max-width: 768px) {\n\t\tflex-direction: column;\n\t}\n"])), function (props) { return (props.vertical ? 'column' : 'row'); }, function (props) { return props.theme.container.backgroundColor; });
