@@ -5,6 +5,8 @@ import image from '@rollup/plugin-image';
 import svg from 'rollup-plugin-svg';
 import external from 'rollup-plugin-peer-deps-external';
 import commonjs from '@rollup/plugin-commonjs';
+import terser from '@rollup/plugin-terser';
+
 
 const packageJson = require('./package.json');
 
@@ -24,7 +26,7 @@ export default [
 				sourcemap: true,
 			},
 		],
-		plugins: [resolve(), commonjs(), image(), svg(), external(), typescript({ tsconfig: './tsconfig.json' })],
+		plugins: [resolve(), commonjs(), image(), svg(), external(), terser(), typescript({ tsconfig: './tsconfig.json' })],
 		external: ['react', 'react-dom', 'styled-components'],
 	},
 	{

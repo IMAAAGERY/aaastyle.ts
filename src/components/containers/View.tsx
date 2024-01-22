@@ -1,21 +1,15 @@
 import { ComponentPropsWithRef, forwardRef } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { DEFAULT_THEME } from '../../common/constants';
-import { Theme } from '../../common/types';
 import { ViewStyle } from './style';
 
-interface ViewProps extends ComponentPropsWithRef<'div'> {
-	theme?: Theme;
-}
+interface ViewProps extends ComponentPropsWithRef<'div'> {}
 
 const View = forwardRef<HTMLDivElement, ViewProps>((props, ref) => {
-	const { children, style, className, theme } = props;
+	const { children, style, className } = props;
+
 	return (
-		<ThemeProvider theme={theme || DEFAULT_THEME}>
 			<ViewStyle style={style} className={className} ref={ref}>
 				{children}
 			</ViewStyle>
-		</ThemeProvider>
 	);
 });
 
