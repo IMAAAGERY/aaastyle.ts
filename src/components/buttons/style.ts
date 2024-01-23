@@ -97,6 +97,9 @@ export const ButtonRippleStyle = styled.span<{ left: number; top: number }>`
 export const ToggleSwitchWrapperStyle = styled.div`
 	position: relative;
 	margin: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
 
 export const ToggleSwitchLabelStyle = styled.label`
